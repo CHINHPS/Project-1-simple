@@ -1,0 +1,86 @@
+<?php
+//phương thức lấy dữ liệu 
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
+    // xử lý đăng nhập
+    if ($_POST['type_'] == 'login_account') {
+        // khai báo amrng lỗi error
+        $error = array();
+        //kiểm tra email có trống ko
+        if (empty($_POST['email'])) {
+            $error['not_email'] = "Vui lòng nhập email !";
+        } else {
+            $email = $_POST['email'];
+        }
+        // kiểm tra mật khẩu có trống ko
+        if (empty($_POST['pass'])) {
+            $error['not_pass'] = "Vui lòng nhập mật khẩu !";
+        } else {
+            $pass = md5($_POST['pass']);
+        }
+        //nếu error không tồn tại thì thực thi nút bấm
+        if (empty($error)) {
+            if (isset($_POST['login']) && ($_POST['login'])) {
+                $check_login = check_login($email, $pass);
+                if (is_array($check_login)) {
+                    $_SESSION['login_user'] = $check_login;
+                    echo '<script language="javascript">';
+                    echo 'alert(" Đăng nhập thành công ! ")';
+                    echo '</script>';
+                    echo "<script>
+                            window.location='../admin/demo/vertical-default-light';
+                            </script>";
+                } else {
+                    $tb = "Tài khoản không tồn tại !";
+                }
+            }
+        }
+    }
+
+    // xử lý đăng ký
+    else if ($_POST['type_'] == 'register_account') {
+
+        //khai bao biến error là mảng
+        $error = array();
+        //bắt lỗi trống email
+        if (empty($_POST['dk_email'])) {
+            $error['not_email_dk'] = "Vui lòng nhập email !";
+        } else {
+            $email = $_POST['dk_email'];
+            $row_email = Kiem_Tra_Email_Tontai($email);
+            //kiểm tra email đã tồn tại hay không
+            if (sizeof($row_email) > 0) {
+                $error['tontai_email'] = "Email đã tồn tại vui lòng chọn email khác !";
+            }
+        }
+        //bắt lỗi chưa nhap mật khẩu
+        if (empty($_POST['dk_pass'])) {
+            $error['not_pass_dk'] = "Vui lòng nhập mật khẩu !";
+        } else {
+            $pass = md5($_POST['dk_pass']);
+            //mật khẩu ngán
+            if (strlen($_POST['dk_pass']) < 8) {
+                $error['pass_ngan'] = "Mật khẩu không được nhỏ hơn 8 ký tự !";
+            }
+        }
+        // chưa nhập lại mật khẩu
+        if (empty($_POST['dk_rp_pass'])) {
+            $error['not_rp_pass'] = "Hãy nhập lại mật khẩu !";
+        } else {
+            $pass2 = md5($_POST['dk_rp_pass']);
+            //nhập lại mật khẩu không gioodng nhau
+            if ($_POST['dk_pass'] != $_POST['dk_rp_pass']) {
+                $error['not_like_pass'] = "Nhập lại mật khẩu không đúng !";
+            }
+        }
+        // nếu mảng error ko tồn tại thì thực thi cau lệnh submit
+        if (empty($error)) {
+            if (isset($_POST['register']) && ($_POST['register'])) {
+                register_user($email, $pass);
+                echo '<script language="javascript">';
+                echo 'alert(" Đăng ký thành công ! ")';
+                echo '</script>';
+            }
+        }
+    }
+}
