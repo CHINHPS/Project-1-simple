@@ -56,7 +56,7 @@
             $mail->isHTML(true);  // Set email format to HTML
             $mail->Subject = 'Kích hoạt tài khoản Galaxy Phone';
             //randomkey = mã hóa md5 của email từ kí tự 7 đến -3
-            $noidungthu = 'Link kích hoạt tài khoản: <a href="http://localhost/duan1_2/controller/activeUser.php?randomkey='.substr(md5($emailKhach),7,-3).'">Nhấn vào đây</a>';
+            $noidungthu = 'Link kích hoạt tài khoản: <a href="http://localhost/duan1/duan1nhom6/controller/activeUser.php?randomkey='.substr(md5($emailKhach),7,-3).'">Nhấn vào đây</a>';
             $mail->Body = $noidungthu;
             $mail->smtpConnect( array(
                 "ssl" => array(
