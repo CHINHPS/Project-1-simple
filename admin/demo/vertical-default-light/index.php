@@ -78,7 +78,7 @@
                 <div class="col-12 col-xl-4">
                   <div class="justify-content-end d-flex">
                     <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
-                      <i class="mdi mdi-calendar"></i>11/11/2021
+                      <i class="mdi mdi-calendar"></i><?= date("d/m/Y")?>
                     </div>
                   </div>
                 </div>
@@ -144,6 +144,9 @@
                 break;
               case "deleteBlog":
                 require_once "../vertical-default-light/pages/Blogs/deleteBlog.php";
+                break;
+              case "logOut":
+                require_once "logOut.php";
                 break;
             }
             ?>

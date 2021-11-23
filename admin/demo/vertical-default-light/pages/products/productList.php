@@ -48,7 +48,8 @@
                                         <span>Pin/Sạc: </span> <?= $thongSo["pinVSac"]; ?>
                                     </td>
                                     <td><?= $san_pham['moTa']; ?></td>
-                                    <td><?= $san_pham['idLoai']; ?></td>
+                                    <?php $loai_san_pham = getProductType($san_pham['idLoai']);?>
+                                    <td><?= $loai_san_pham['tenLoai']; ?></td>
                                     <td><?php if ($san_pham['anHien'] == 1) echo "Ẩn";
                                         else echo "Hiện"; ?></td>
                                     <td style="text-align: center;">

@@ -83,7 +83,7 @@
                 <i class="ti-settings text-primary"></i>
                 Tài khoản
               </a>
-              <a class="dropdown-item">
+              <a class="dropdown-item" href="?page=logOut">
                 <i class="ti-power-off text-primary"></i>
                 Đăng xuất
               </a>
