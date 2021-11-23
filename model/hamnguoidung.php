@@ -16,8 +16,14 @@ function Kiem_Tra_Email_Tontai($email){
   return pdo_query($sql);
 }
 
-
-
-
-
+//Lấy tất cả email User
+function getEmailUser(){
+  $sql="SELECT email FROM  tai_khoan";
+  return pdo_query($sql);
+}
+//Kích hoạt tài khoản
+function activeUser($email){
+  $sql="UPDATE tai_khoan SET kichHoat=1 where email=?";
+  return pdo_query_one($sql,$email);
+}
 ?>
