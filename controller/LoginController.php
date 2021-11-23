@@ -77,10 +77,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         if (empty($error)) {
             if (isset($_POST['register']) && ($_POST['register'])) {
                 register_user($email, $pass);
+                require_once "sendMail.php";
+                GuiMailXacNhan($email);
                 echo '<script language="javascript">';
-                echo 'alert(" Đăng ký thành công ! ")';
+                echo 'alert(" Đăng ký thành công ! Vui lòng kiểm tra email để kích hoạt tài khoản của bạn")';
                 echo '</script>';
             }
         }
     }
 }
+?>
