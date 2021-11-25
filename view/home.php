@@ -14,26 +14,8 @@
                 <div class="col-12 col-lg-9">
                     <div class="block-slideshow__body">
                         <div class="owl-carousel">
-                            <a class="block-slideshow__slide" href="#">
-                                <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('../libary/images/banners/banner1.jpg');background-size:cover;"></div>
-                                <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" style="background-image: url('images/slides/slide-1-mobile.jpg')"></div>
-                                <div class="block-slideshow__slide-content">
-
-                                </div>
-                            </a>
-                            <a class="block-slideshow__slide" href="#">
-                                <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('../libary/images/banners/banner2.jpg');background-size:cover;"></div>
-                                <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" style="background-image: url('images/slides/slide-2-mobile.jpg')"></div>
-                                <div class="block-slideshow__slide-content">
-
-                                </div>
-                            </a>
-                            <a class="block-slideshow__slide" href="#">
-                                <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('../libary/images/banners/banner3.jpg');background-size:cover;"></div>
-                                <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" style="background-image: url('images/slides/slide-3-mobile.jpg')"></div>
-                                <div class="block-slideshow__slide-content">
-
-                                </div>
+                            <a class="block-slideshow__slide">
+                                <img src="libary/images/banners/banner1.jpg" alt="">
                             </a>
                         </div>
                     </div>
@@ -49,7 +31,7 @@
                 <div class="block-features__item">
                     <div class="block-features__icon">
                         <svg width="48px" height="48px">
-                            <use xlink:href="../libary/images/sprite.svg#fi-free-delivery-48"></use>
+                            <use xlink:href="libary/images/sprite.svg#fi-free-delivery-48"></use>
                         </svg>
                     </div>
                     <div class="block-features__content">
@@ -61,7 +43,7 @@
                 <div class="block-features__item">
                     <div class="block-features__icon">
                         <svg width="48px" height="48px">
-                            <use xlink:href="../libary/images/sprite.svg#fi-24-hours-48"></use>
+                            <use xlink:href="libary/images/sprite.svg#fi-24-hours-48"></use>
                         </svg>
                     </div>
                     <div class="block-features__content">
@@ -73,7 +55,7 @@
                 <div class="block-features__item">
                     <div class="block-features__icon">
                         <svg width="48px" height="48px">
-                            <use xlink:href="../libary/images/sprite.svg#fi-payment-security-48"></use>
+                            <use xlink:href="libary/images/sprite.svg#fi-payment-security-48"></use>
                         </svg>
                     </div>
                     <div class="block-features__content">
@@ -85,7 +67,7 @@
                 <div class="block-features__item">
                     <div class="block-features__icon">
                         <svg width="48px" height="48px">
-                            <use xlink:href="../libary/images/sprite.svg#fi-tag-48"></use>
+                            <use xlink:href="libary/images/sprite.svg#fi-tag-48"></use>
                         </svg>
                     </div>
                     <div class="block-features__content">
@@ -125,11 +107,11 @@
                                             <div class="product-card__badge product-card__badge--hot">Hot</div>
                                         </div>
                                         <div class="product-card__image product-image">
-                                            <a href="?act=detail_prod&id_source=<?=$sanphams['idSP']?>" class="product-image__body"><img class="product-image__img" src="<?=$sanphams['hinhAnh'] ?>" alt="" width="100%">
+                                            <a href="view-product/<?=seo1($sanphams['tenSP'])?>/<?=$sanphams['idSP']?>" class="product-image__body"><img class="product-image__img" src="<?=$sanphams['hinhAnh'] ?>" alt="" width="100%">
                                             </a>
                                         </div>
                                         <div class="product-card__info">
-                                            <div class="product-card__name"><a href="?act=detail_prod&id_source=<?=$sanphams['idSP']?>"><?=$sanphams['tenSP'] ?></a>
+                                            <div class="product-card__name"><a href="view-product/<?=seo1($sanphams['tenSP'])?>/<?=$sanphams['idSP']?>"><?=$sanphams['tenSP'] ?></a>
                                             </div>
                                             
                                             <div class="product-card__rating">
@@ -167,8 +149,8 @@
     <div class="block block-banner">
         <div class="container">
             <a href="#" class="block-banner__body">
-                <div class="block-banner__image block-banner__image--desktop" style="background-image: url('../libary/images/banners/bannerdt.png');background-size:contain;"></div>
-                <div class="block-banner__image block-banner__image--mobile" style="background-image: url('../libary/images/banners/banner-1-mobile.jpg')"></div>
+                <div class="block-banner__image block-banner__image--desktop" style="background-image: url('libary/images/banners/bannerdt.png');background-size:contain;"></div>
+                <div class="block-banner__image block-banner__image--mobile" style="background-image: url('libary/images/banners/banner-1-mobile.jpg')"></div>
 
 
             </a>
@@ -194,13 +176,13 @@
                                         <div class="product-card__badge product-card__badge--hot">Hot</div>
                                     </div>
                                     <div class="product-card__image product-image">
-                                        <a href="?act=detail_prod&id_source=<?=$sanpham_bcss['idSP']?>" class="product-image__body">
+                                        <a href="view-product/<?=seo1($sanphams['tenSP'])?>/<?=$sanpham_bcss['idSP']?>" class="product-image__body">
                                             <img class="product-image__img" src="<?=$sanpham_bcss['hinhAnh'] ?>" alt="">
                                         </a>
                                     </div>
                                     <div class="product-card__info">
                                         <div class="product-card__name">
-                                            <a href="?act=detail_prod&id_source=<?=$sanpham_bcss['idSP'] ?>">
+                                            <a href="view-product/<?=seo1($sanphams['tenSP'])?>/<?=$sanpham_bcss['idSP'] ?>">
                                                 <?=$sanpham_bcss['tenSP'] ?>
                                             </a>
                                         </div>
