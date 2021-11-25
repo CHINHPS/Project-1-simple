@@ -213,7 +213,7 @@
                 
                                                 
                         <div class="posts-view__pagination" style="margin: 0 auto;">
-                                <a class="btn btn-primary col-12" href="?act=all_prod">Xem thêm sản phẩm</a>
+                                <a class="btn btn-primary col-12" href="product/view-all">Xem thêm sản phẩm</a>
                         </div>
                         
                         

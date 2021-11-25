@@ -12,21 +12,22 @@ $tin_nb=get_All_list_news_nb();
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="format-detection" content="telephone=no">
     <title>Stroyka</title>
-    <link rel="icon" type="image/png" href="../libary/images/favicon.png">
+    <link rel="icon" type="image/png" href="libary/images/favicon.png">
     <!-- fonts -->
-    <base href="../controller/">
+    <base href="http://localhost/DUAN1_2/github/duan1nhom6/">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i">
     <!-- css -->
-    <link rel="stylesheet" href="../libary/vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../libary/vendor/owl-carousel/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="../libary/vendor/photoswipe/photoswipe.css">
-    <link rel="stylesheet" href="../libary/vendor/photoswipe/default-skin/default-skin.css">
-    <link rel="stylesheet" href="../libary/vendor/select2/css/select2.min.css">
-    <link rel="stylesheet" href="../libary/css/style.css">
+    <link rel="stylesheet" href="libary/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="libary/vendor/owl-carousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="libary/vendor/photoswipe/photoswipe.css">
+    <link rel="stylesheet" href="libary/vendor/photoswipe/default-skin/default-skin.css">
+    <link rel="stylesheet" href="libary/vendor/select2/css/select2.min.css">
+    <link rel="stylesheet" href="libary/css/style.css">
     <!-- font - fontawesome -->
-    <link rel="stylesheet" href="../libary/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="libary/vendor/fontawesome/css/all.min.css">
     <!-- font - stroyka -->
-    <link rel="stylesheet" href="../libary/fonts/stroyka/stroyka.css">
+    <link rel="stylesheet" href="libary/fonts/stroyka/stroyka.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -171,10 +172,10 @@ $tin_nb=get_All_list_news_nb();
 
                                         <button class="departments__button">
                                             <svg class="departments__button-icon" width="18px" height="14px">
-                                                <use xlink:href="../libary/images/sprite.svg#menu-18x14"></use>
+                                                <use xlink:href="libary/images/sprite.svg#menu-18x14"></use>
                                             </svg> Sản phẩm theo danh mục
                                             <svg class="departments__button-arrow" width="9px" height="6px">
-                                                <use xlink:href="../libary/images/sprite.svg#arrow-rounded-down-9x6"></use>
+                                                <use xlink:href="libary/images/sprite.svg#arrow-rounded-down-9x6"></use>
                                             </svg>
                                         </button>
 
@@ -196,7 +197,7 @@ $tin_nb=get_All_list_news_nb();
                                             <a class="nav-links__item-link" href="?act=all_prod">
                                                 <div class="nav-links__item-body">Shop
                                                     <svg class="nav-links__item-arrow" width="9px" height="6px">
-                                                        <use xlink:href="../libary/images/sprite.svg#arrow-rounded-down-9x6"></use>
+                                                        <use xlink:href="libary/images/sprite.svg#arrow-rounded-down-9x6"></use>
                                                     </svg>
                                                 </div>
                                             </a>
@@ -224,14 +225,28 @@ $tin_nb=get_All_list_news_nb();
 
 
                                         <li class="nav-links__item nav-links__item--has-submenu">
+
+                                        <?php if(!isset($_SESSION['login_user'])){ ?>
+
                                             <a class="nav-links__item-link" href="?act=login_account">
                                                 <div class="nav-links__item-body">Tài khoản
                                                     <svg class="nav-links__item-arrow" width="9px" height="6px">
-                                                        <use xlink:href="../libary/images/sprite.svg#arrow-rounded-down-9x6"></use>
+                                                        <use xlink:href="libary/images/sprite.svg#arrow-rounded-down-9x6"></use>
                                                     </svg>
                                                 </div>
                                             </a>
-                                       
+
+                                        <?php } else { ?>
+
+                                            <a class="nav-links__item-link" href="?act=view_account&action_user=home">
+                                                <div class="nav-links__item-body">Tài khoản
+                                                    <svg class="nav-links__item-arrow" width="9px" height="6px">
+                                                        <use xlink:href="libary/images/sprite.svg#arrow-rounded-down-9x6"></use>
+                                                    </svg>
+                                                </div>
+                                            </a>
+
+                                        <?php } ?>
                                         </li>
                                         <li class="nav-links__item nav-links__item--has-submenu">
                                             <a class="nav-links__item-link" href="?act=list_news">
@@ -249,7 +264,7 @@ $tin_nb=get_All_list_news_nb();
                                 <div class="nav-panel__indicators">
                                  
                                     <div class="indicator indicator--trigger--click"><a href="?act=my_cart" class="indicator__button"><span class="indicator__area"><svg width="20px" height="20px">
-                                                    <use xlink:href="../libary/images/sprite.svg#cart-20"></use>
+                                                    <use xlink:href="libary/images/sprite.svg#cart-20"></use>
                                                 </svg> 
                                                 <?php
                                                  if(!empty($_SESSION['mycart']) ){
@@ -285,7 +300,7 @@ $tin_nb=get_All_list_news_nb();
                                                             <a href="?act=delete_prod_cart&id='.$i.'"> 
                                                             <button type="button" class="dropcart__product-remove btn btn-light btn-sm btn-svg-icon">
                                                                 <svg width="10px" height="10px">
-                                                                   <use xlink:href="../libary/images/sprite.svg#cross-10"></use>
+                                                                   <use xlink:href="libary/images/sprite.svg#cross-10"></use>
                                                                 </svg>
                                                             </button>
                                                             <a/>
@@ -319,14 +334,29 @@ $tin_nb=get_All_list_news_nb();
                                         </div>
                                     </div>
                                     <div class="indicator ">
+
+                                    <?php if(!isset($_SESSION['login_user'])){ ?>
+
                                         <a href="?act=login_account" class="indicator__button">
                                             <span class="indicator__area">
                                                 <svg width="20px" height="20px">
-                                                    <use xlink:href="../libary/images/sprite.svg#person-20"></use>
+                                                    <use xlink:href="libary/images/sprite.svg#person-20"></use>
                                                 </svg>
                                             </span>
                                         </a>
-                                      
+
+                                    <?php } else { ?>
+
+                                        <a href="?act=view_account&action_user=home" class="indicator__button">
+                                            <span class="indicator__area">
+                                                <svg width="20px" height="20px">
+                                                    <use xlink:href="libary/images/sprite.svg#person-20"></use>
+                                                </svg>
+                                            </span>
+                                        </a>
+
+                                    <?php } ?>
+
                                     </div>
                                 </div>
                             </div>
@@ -365,17 +395,17 @@ $tin_nb=get_All_list_news_nb();
                      <?php foreach($tin_nb as $tin_nbs){ ?>
                         <div class="post-card">
                             <div class="post-card__image">
-                                <a href="?act=detail_news&id_source=<?php echo$tin_nbs['idTin'] ?>">
+                                <a href="view-news/<?=seo1($tin_nbs['tieuDe'])?>/<?=$tin_nbs['idTin'] ?>">
                                     <img src="<?php echo $tin_nbs['hinhAnh'] ?>" alt="">
                                 </a>
                             </div>
                             <div class="post-card__info">
                             
-                                <div class="post-card__name"><a href="?act=detail_news&id_source=<?php echo$tin_nbs['idTin'] ?>"><?php echo $tin_nbs['tieuDe'] ?></a>
+                                <div class="post-card__name"><a href="view-news/<?=seo1($tin_nbs['tieuDe'])?>/<?=$tin_nbs['idTin'] ?>"><?php echo $tin_nbs['tieuDe'] ?></a>
                                 </div>
                                 <div class="post-card__date"><?php echo $tin_nbs['ngayDang'] ?></div>
                                 <div class="post-card__content"><?php echo $tin_nbs['tomTat'] ?></div>
-                                <div class="post-card__read-more"><a href="?act=detail_news&id_source=<?php echo$tin_nbs['idTin'] ?>" class="btn btn-secondary btn-sm">Đọc thêm</a>
+                                <div class="post-card__read-more"><a href="view-news/<?=seo1($tin_nbs['tieuDe'])?>/<?=$tin_nbs['idTin'] ?>" class="btn btn-secondary btn-sm">Đọc thêm</a>
                                 </div>
                             </div>
                         </div>
@@ -408,7 +438,7 @@ $tin_nb=get_All_list_news_nb();
                         <!-- copyright -->Thiết kế và vận hành bởi <span style="color:red;">Nhóm 6 - Dự án 1</span>
                         <!-- copyright / end -->
                     </div>
-                    <div class="site-footer__payments"><img src="../libary/images/payments.png" alt="">
+                    <div class="site-footer__payments"><img src="libary/images/payments.png" alt="">
                     </div>
                 </div>
             </div>
@@ -894,17 +924,17 @@ $tin_nb=get_All_list_news_nb();
     </div>
     <!-- photoswipe / end -->
     <!-- js -->
-    <script src="../libary/vendor/jquery/jquery.min.js"></script>
-    <script src="../libary/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../libary/vendor/owl-carousel/owl.carousel.min.js"></script>
-    <script src="../libary/vendor/nouislider/nouislider.min.js"></script>
-    <script src="../libary/vendor/photoswipe/photoswipe.min.js"></script>
-    <script src="../libary/vendor/photoswipe/photoswipe-ui-default.min.js"></script>
-    <script src="../libary/vendor/select2/js/select2.min.js"></script>
-    <script src="../libary/js/number.js"></script>
-    <script src="../libary/js/main.js"></script>
-    <script src="../libary/js/header.js"></script>
-    <script src="../libary/vendor/svg4everybody/svg4everybody.min.js"></script>
+    <script src="libary/vendor/jquery/jquery.min.js"></script>
+    <script src="libary/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="libary/vendor/owl-carousel/owl.carousel.min.js"></script>
+    <script src="libary/vendor/nouislider/nouislider.min.js"></script>
+    <script src="libary/vendor/photoswipe/photoswipe.min.js"></script>
+    <script src="libary/vendor/photoswipe/photoswipe-ui-default.min.js"></script>
+    <script src="libary/vendor/select2/js/select2.min.js"></script>
+    <script src="libary/js/number.js"></script>
+    <script src="libary/js/main.js"></script>
+    <script src="libary/js/header.js"></script>
+    <script src="libary/vendor/svg4everybody/svg4everybody.min.js"></script>
   
 </body>
 
