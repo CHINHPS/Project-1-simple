@@ -16,14 +16,13 @@
                     <div class="account-nav flex-grow-1">
                         <h4 class="account-nav__title">Điều hướng</h4>
                         <ul>
-                            <li class="account-nav__item account-nav__item--active"><a
-                                    href="user/home">Điều khiển</a></li>
+                            <li class="account-nav__item account-nav__item--active"><a href="user/home">Điều khiển</a></li>
                             <li class="account-nav__item"><a href="user/change-profile">Chỉnh sửa thông tin</a></li>
-                            <li class="account-nav__item"><a href="account-orders.php">Lịch sử mua hàng</a></li>
-                            <li class="account-nav__item"><a href="account-order-details.php">Chi tiết hóa đơn</a>
-                            </li>
-                            <li class="account-nav__item"><a href="account-password.php">Mật khẩu</a></li>
-                            <li class="account-nav__item"><a href="account-login.php">Đăng xuất</a></li>
+                            <li class="account-nav__item"><a href="user/history">Lịch sử mua hàng</a></li>
+                            <!-- <li class="account-nav__item"><a href="account-order-details.php">Chi tiết hóa đơn</a>
+                            </li> -->
+                            <li class="account-nav__item"><a href="user/password">Mật khẩu</a></li>
+                            <li class="account-nav__item"><a href="user/logOut">Đăng xuất</a></li>
                         </ul>
                     </div>
                 </div>

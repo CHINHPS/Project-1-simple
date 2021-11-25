@@ -3,8 +3,8 @@
         <div class="card-body profile-card__body">
             <div class="profile-card__avatar"><img src="images/avatars/avatar-3.jpg" alt="">
             </div>
-            <div class="profile-card__name">Helena Garcia</div>
-            <div class="profile-card__email">stroyka@example.com</div>
+            <div class="profile-card__name"><?=$loginUser['ten']?></div>
+            <div class="profile-card__email"><?=$loginUser['email']?></div>
             <div class="profile-card__edit"><a href="account-profile.php"
                     class="btn btn-secondary btn-sm">Chỉnh sửa thông tin</a></div>
         </div>
@@ -12,16 +12,16 @@
     <div class="dashboard__address card address-card address-card--featured">
         <div class="address-card__badge">Địa chỉ mặc định</div>
         <div class="address-card__body">
-            <div class="address-card__name">Helena Garcia</div>
+            <div class="address-card__name"><?=$loginUser['ten']?></div>
             <div class="address-card__row">Random Federation<br>115302, Moscow<br>ul.
                 Varshavskaya, 15-2-178</div>
             <div class="address-card__row">
                 <div class="address-card__row-title">Số điện thoại</div>
-                <div class="address-card__row-content">38 972 588-42-36</div>
+                <div class="address-card__row-content"><?=$loginUser['soDienThoai']?></div>
             </div>
             <div class="address-card__row">
                 <div class="address-card__row-title">Địa chỉ Email</div>
-                <div class="address-card__row-content">stroyka@example.com</div>
+                <div class="address-card__row-content"><?=$loginUser['email']?></div>
             </div>
             <div class="address-card__footer"><a href="account-edit-address.php">Sửa địa chỉ</a></div>
         </div>
@@ -43,24 +43,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><a href="#">#8132</a></td>
-                            <td>02 April, 2019</td>
-                            <td>Pending</td>
-                            <td>$2,719.00 for 5 item(s)</td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">#7592</a></td>
-                            <td>28 March, 2019</td>
-                            <td>Pending</td>
-                            <td>$374.00 for 3 item(s)</td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">#7192</a></td>
-                            <td>15 March, 2019</td>
-                            <td>Shipped</td>
-                            <td>$791.00 for 4 item(s)</td>
-                        </tr>
+                        <?php $hoaDon = getInvoiceByIDUser($loginUser['idUser']); ?>
+                        <?php foreach($hoaDon as $hoa_don){ ?>
+                            <tr>
+                                <td><?=$hoa_don['idHoaDon']?></td>
+                                <td><?=date("d/m/Y h:m:s",strtotime($hoa_don['ngayMua']))?></td>
+                                <td><?=$hoa_don['thanhTien']?></td>
+                                <td>Chi tiết</td>
+                            </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>

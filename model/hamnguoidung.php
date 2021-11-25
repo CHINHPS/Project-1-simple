@@ -24,6 +24,21 @@ function getEmailUser(){
 //Kích hoạt tài khoản
 function activeUser($email){
   $sql="UPDATE tai_khoan SET kichHoat=1 where email=?";
-  return pdo_query_one($sql,$email);
+  return pdo_execute($sql,$email);
+}
+//Cập nhật mật khẩu
+function updatePasswordUser($password,$email){
+  $sql="UPDATE tai_khoan SET matKhau=? where email=?";
+  return pdo_execute($sql,$password,$email);
+}
+//Lấy hóa đơn bằng idUser
+function getInvoiceByIDUser($idUser){
+  $sql="SELECT * FROM  hoa_don WHERE idUser=?";
+  return pdo_query($sql,$idUser);
+}
+//Cập nhật tên và sdt
+function updateNameAndPhoneNumber($ten,$sdt,$email){
+  $sql="UPDATE tai_khoan SET ten=?,soDienThoai=? where email=?";
+  return pdo_execute($sql,$ten,$sdt,$email);
 }
 ?>
