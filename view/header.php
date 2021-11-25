@@ -146,7 +146,7 @@ $tin_nb=get_All_list_news_nb();
                                                 <div class="departments__submenus-container"></div>
                                                 <ul class="departments__links">
                                                 
-                                                    <?php foreach($category_products as $category_product){ ?>
+                                                    <?php foreach(get_All_category_product() as $category_product){ ?>
 
                                                     <li class="departments__item">
                                                         <a class="departments__item-link" href="#">

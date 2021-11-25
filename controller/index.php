@@ -22,7 +22,6 @@ switch ($action) {
         $sanpham_hot = get_All_Products_HOT();
         $sanpham_bc = get_All_Products_BC();
         // $sanpham_mv=get_All_Products_mv();
-        $category_products = get_All_category_product();
         $tin_nb=get_All_list_news_nb();
         $main = '../view/home.php';
         include_once '../view/header.php';
@@ -110,8 +109,8 @@ switch ($action) {
             set_view_product($id_pro);
             $main = '../view/product_view.php';
             include_once '../view/header.php';
-        } else echo "Đường dẫn sai";
-       
+        } else echo "Đường dẫn sai nè!";
+        
         break;
 }
 
