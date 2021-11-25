@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     echo 'alert(" Đăng nhập thành công ! ")';
                     echo '</script>';
                     echo "<script>
-                            window.location='../admin/demo/vertical-default-light';
+                            window.location='./';
                             </script>";
                 } else {
                     $tb = "Tài khoản không tồn tại !";

@@ -6,6 +6,7 @@ if (!isset($_SESSION['mycart'])) $_SESSION['mycart'] = [];
 include_once "../model/hamsanpham.php";
 include_once "../model/hamnguoidung.php";
 include_once "../model/hamtintuc.php";
+include_once '../model/global.php';
 
 if(isset($_GET['act']))
     $action = $_GET['act'];
@@ -31,15 +32,30 @@ switch ($action) {
 
         // controller xử lý login - regist
         include_once 'LoginController.php';
-        $main = '../view/account-login.php';
-        include_once '../view/header.php';
+
+        if(!isset($_SESSION['login_user'])){
+
+            $main = '../view/user/login.php';
+            include_once '../view/header.php';
+
+        } else echo "Bạn đã đăng nhập rồi mà nhỉ?";
+
         break;
+    
+    case 'view_account':
 
-    case 'edit_profile_account':
+        // xử lý trang thông tin người dùng
+        include_once 'LoginController.php';
 
-        $main = '../view/account-profile.php';
-        include_once '../view/header.php';
-        break;  
+        # không đăng nhập không được vào xem
+        if(isset($_SESSION['login_user']))
+
+            include_once 'UserController.php';
+        else 
+
+            echo "Bạn chưa đăng nhập mà xem gì v b?";
+        
+        break;
 
     case 'my_cart':
         if(isset($_POST['addtocart']) && ($_POST['addtocart'])){

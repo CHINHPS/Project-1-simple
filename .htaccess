@@ -5,4 +5,6 @@ RewriteRule ^view-product/([a-zA-Z0-9_-]+)/([0-9]+)$ controller/?act=detail_prod
 
 RewriteRule ^view-news/([a-zA-Z0-9_-]+)/([0-9]+)$ controller/?act=detail_news&id_source=$2
 
+RewriteRule ^login-account$ controller/?act=login_account
+
 RewriteRule ^product/view-all$ controller/?act=all_prod

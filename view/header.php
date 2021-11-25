@@ -228,7 +228,7 @@ $tin_nb=get_All_list_news_nb();
 
                                         <?php if(!isset($_SESSION['login_user'])){ ?>
 
-                                            <a class="nav-links__item-link" href="?act=login_account">
+                                            <a class="nav-links__item-link" href="login-account">
                                                 <div class="nav-links__item-body">Tài khoản
                                                     <svg class="nav-links__item-arrow" width="9px" height="6px">
                                                         <use xlink:href="libary/images/sprite.svg#arrow-rounded-down-9x6"></use>
@@ -238,7 +238,7 @@ $tin_nb=get_All_list_news_nb();
 
                                         <?php } else { ?>
 
-                                            <a class="nav-links__item-link" href="?act=view_account&action_user=home">
+                                            <a class="nav-links__item-link" href="user/home">
                                                 <div class="nav-links__item-body">Tài khoản
                                                     <svg class="nav-links__item-arrow" width="9px" height="6px">
                                                         <use xlink:href="libary/images/sprite.svg#arrow-rounded-down-9x6"></use>
@@ -337,7 +337,7 @@ $tin_nb=get_All_list_news_nb();
 
                                     <?php if(!isset($_SESSION['login_user'])){ ?>
 
-                                        <a href="?act=login_account" class="indicator__button">
+                                        <a href="login-account" class="indicator__button">
                                             <span class="indicator__area">
                                                 <svg width="20px" height="20px">
                                                     <use xlink:href="libary/images/sprite.svg#person-20"></use>
@@ -347,7 +347,7 @@ $tin_nb=get_All_list_news_nb();
 
                                     <?php } else { ?>
 
-                                        <a href="?act=view_account&action_user=home" class="indicator__button">
+                                        <a href="user/home" class="indicator__button">
                                             <span class="indicator__area">
                                                 <svg width="20px" height="20px">
                                                     <use xlink:href="libary/images/sprite.svg#person-20"></use>
