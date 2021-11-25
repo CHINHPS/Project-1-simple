@@ -67,10 +67,10 @@ function getAllProduct()
    return pdo_query($sql);
 }
 //Lấy 1 sản phẩm
-function getProduct($idLoai)
+function getProduct($idSP)
 {
    $sql = "select idSP,tenSP,donGia,giamGia,ngayNhap,hinhAnh,luotXem,thongSo,moTa,anHien,idLoai from san_pham where idSP=?";
-   return pdo_query_one($sql, $idLoai);
+   return pdo_query_one($sql, $idSP);
 }
 //Thêm sản phẩm
 function addProduct($tenSP, $donGia, $giamGia, $hinhAnh, $luotXem, $thongSo, $moTa, $anHien, $idLoai)
@@ -85,10 +85,10 @@ function updateProduct($tenSP, $donGia, $giamGia, $hinhAnh, $luotXem, $thongSo, 
    return pdo_execute($sql, $tenSP, $donGia, $giamGia, $hinhAnh, $luotXem, $thongSo, $moTa, $anHien, $idLoai, $idSP);
 }
 //Xóa sản phẩm
-function deleteProduct($idLoai)
+function deleteProduct($idSP)
 {
    $sql = "DELETE FROM san_pham WHERE idSP=?";
-   return pdo_execute($sql, $idLoai);
+   return pdo_execute($sql, $idSP);
 }
 //Lấy danh sách bình luận
 function getAllComment()
@@ -117,25 +117,25 @@ function hideComment($anHien, $idBL)
 //Lấy danh sách tin
 function getAllBlog()
 {
-   $sql = "select idTin,tieuDe,tomTat,noiDung,ngayDang,hinhAnh,idUser,idLoaiTin,luotXem,anHien from tin order by idTin desc";
+   $sql = "select idTin,tieuDe,tomTat,noiDung,ngayDang,hinhAnh,idUser,luotXem,anHien from tin order by idTin desc";
    return pdo_query($sql);
 }
 //Lấy 1 tin
 function getBlog($idTin)
 {
-   $sql = "select idTin,tieuDe,tomTat,noiDung,ngayDang,hinhAnh,idUser,idLoaiTin,luotXem,anHien from tin where idTin=?";
+   $sql = "select idTin,tieuDe,tomTat,noiDung,ngayDang,hinhAnh,idUser,luotXem,anHien from tin where idTin=?";
    return pdo_query_one($sql, $idTin);
 }
 //Thêm tin
 function addBlog($tenSP, $donGia, $giamGia, $hinhAnh, $luotXem, $thongSo, $moTa, $anHien, $idLoai)
 {
-   $sql = "INSERT INTO tin (tieuDe,tomTat,noiDung,hinhAnh,idUser,idLoaiTin,luotXem,anHien) VALUES (?,?,?,?,?,?,?,?)";
+   $sql = "INSERT INTO tin (tieuDe,tomTat,noiDung,hinhAnh,idUser,luotXem,anHien) VALUES (?,?,?,?,?,?,?,?)";
    return pdo_execute($sql, $tenSP, $donGia, $giamGia, $hinhAnh, $luotXem, $thongSo, $moTa, $anHien, $idLoai);
 }
 //Sửa tin
 function updateBlog($tenSP, $donGia, $giamGia, $hinhAnh, $luotXem, $thongSo, $moTa, $anHien, $idLoai, $idTin)
 {
-   $sql = "UPDATE tin SET tieuDe=?,tomTat=?,noiDung=?,hinhAnh=?,idUser=?,idLoaiTin=?,luotXem=?,anHien=? WHERE idTin=?";
+   $sql = "UPDATE tin SET tieuDe=?,tomTat=?,noiDung=?,hinhAnh=?,idUser=?,luotXem=?,anHien=? WHERE idTin=?";
    return pdo_execute($sql, $tenSP, $donGia, $giamGia, $hinhAnh, $luotXem, $thongSo, $moTa, $anHien, $idLoai, $idTin);
 }
 //Xóa tin
@@ -144,58 +144,22 @@ function deleteBlog($idTin)
    $sql = "DELETE FROM tin WHERE idTin=?";
    return pdo_execute($sql, $idTin);
 }
-    //  // Lấy username và password từ bảng admin_users
-    // function checkAdminUser($username,$pass){
-    //     $sql="select idAdmin, username from admin_users where username=? && password=?";
-    //     return pdo_query_one($sql,$username,$pass);
-    //  }
-    //  // Lấy tất cả User
-    // function getUser(){
-    //     $sql="select idAdmin, username, password from admin_users";
-    //     return pdo_query($sql);
-    // }
-    // //Sửa User
-    // function editUser($username,$password,$id){
-    //     $sql="UPDATE admin_users SET username=?, password=? WHERE idAdmin=?";
-    //     return pdo_execute($sql,$username,$password,$id);
-    // }
-    // //Lấy thông tin User
-    // function getInfoUser($id){
-    //     $sql="SELECT username, password from admin_users  WHERE idAdmin=?";
-    //     return pdo_query_one($sql,$id);
-    // }
-    // //Xóa User
-    // function deleteUser($id){
-    //     $sql="DELETE FROM admin_users WHERE idAdmin=?";
-    //     return pdo_execute($sql,$id);
-    // }
-    // //Thêm User
-    // function addUser($username,$password){
-    //     $sql="INSERT INTO admin_users (username, password) VALUES (?,?)";
-    //     return pdo_query_one($sql,$username,$password);
-    // }
-
-    // function getFeaturePro(){
-    //     $sql="select id, name, images, price from products order by updated_at desc limit 8";
-    //     return pdo_query($sql);
-    //  }
-    //  // Lấy sản thông tin sản phẩm từ database
-    //  function getInfoProductByID($id){
-    //    $sql="select name, price, intro, tag, r_intro, review,images from products where id=?";
-    //    return pdo_query_one($sql,$id);
-    // }
-    // // Lấy sản thông số kỹ thuật từ database
-    //  function getProductDetailByID($id){
-    //      $sql="select cpu, ram, screen, vga, storage, exten_memmory, cam1, cam2, sim, connect, pin, os from pro_details where pro_id=?";
-    //      return pdo_query_one($sql,$id);
-    //   }
-    //   // Lấy sản phẩm bán chạy từ database, chỉ hiện 6 sản phẩm
-    //   function getBestSellPro(){
-    //    $sql="select id, name, images, price from products limit 6";
-    //     return pdo_query($sql);
-    // }
-    // // Lấy sản phẩm mới nhất từ database, chỉ hiện 4 sản phẩm
-    // function getLastestPro(){
-    //    $sql="select id, name, images, price from products order by intro desc limit 4";
-    //     return pdo_query($sql);
-    // }
+//Lấy tất cả hóa đơn
+function getAllInvoice()
+{
+   $sql = "select * from hoa_don order by idHoaDon desc";
+   return pdo_query($sql);
+}
+//Lấy chi tiết hóa đơn
+function getDetailInvoice($idHoaDon)
+{
+   $sql = "select * from chi_tiet_hoa_don where idHoaDon=?";
+   return pdo_query($sql,$idHoaDon);
+}
+//Check loại sản phẩm có sản phẩm không
+function getProductByIDLoai($idLoai)
+{
+   $sql = "select * from san_pham where idLoai=?";
+   return pdo_query_one($sql, $idLoai);
+}
+?>
