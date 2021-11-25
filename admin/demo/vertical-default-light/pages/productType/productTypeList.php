@@ -22,8 +22,14 @@
                                     <td><?php if ($loai_san_pham['anHien'] == 1) echo "Ẩn";
                                         else echo "Hiện"; ?></td>
                                     <td style="text-align: center;">
+                                        <?php 
+                                            $sanPham = getProductByIDLoai($loai_san_pham['idLoai']);
+                                            $thongBao1 = "return confirm('Bạn có muốn xóa loại sản phẩm này ?')";
+                                            $thongBao2 = "return alert('Bạn không thể xóa loại sản phẩm này !')";
+                                            if(is_array($sanPham)) $thongBao = $thongBao2; else $thongBao = $thongBao1;
+                                        ?>
                                         <a href="?page=updateProductType&idLoai=<?= $loai_san_pham['idLoai']; ?>"><button class="btn btn-outline-primary">Sửa</button></a>
-                                        <a href="?page=deleteProductType&idLoai=<?= $loai_san_pham['idLoai']; ?>"><button class="btn btn-outline-primary" onclick="return confirm('Bạn có muốn xóa loại sản phẩm này ?')">Xóa</button></a>
+                                        <a <?php if(is_array($sanPham)==false) echo "href="?>"?page=deleteProductType&idLoai=<?= $loai_san_pham['idLoai']; ?>"><button class="btn btn-outline-primary" onclick="<?=$thongBao?>">Xóa</button></a>
                                     </td>
                                 </tr>
                             <?php } ?>

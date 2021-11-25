@@ -15,7 +15,6 @@
                                 <th>Hình ảnh</th>
                                 <th>Lượt xem</th>
                                 <th>Thông số</th>
-                                <th>Mô tả</th>
                                 <th>Loại</th>
                                 <th>Ẩn hiện</th>
                                 <th style="text-align: center;">Thao tác</th>
@@ -47,7 +46,6 @@
                                         <span>SIM: </span> <?= $thongSo["SIM"]; ?><br>
                                         <span>Pin/Sạc: </span> <?= $thongSo["pinVSac"]; ?>
                                     </td>
-                                    <td><?= $san_pham['moTa']; ?></td>
                                     <?php $loai_san_pham = getProductType($san_pham['idLoai']);?>
                                     <td><?= $loai_san_pham['tenLoai']; ?></td>
                                     <td><?php if ($san_pham['anHien'] == 1) echo "Ẩn";
