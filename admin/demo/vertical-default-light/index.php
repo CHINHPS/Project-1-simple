@@ -148,6 +148,13 @@
               case "logOut":
                 require_once "logOut.php";
                 break;
+              case "invoice":
+                require_once "../vertical-default-light/pages/invoice/invoiceList.php";
+                break;
+              case "detailInvoice":
+                require_once "../vertical-default-light/pages/invoice/detailInvoice.php";
+                break;
+              
             }
             ?>
           </div>
@@ -184,7 +191,7 @@
   <script src="../../js/jquery.cookie.js" type="text/javascript"></script>
   <script src="../../js/dashboard.js"></script>
   <script src="../../js/Chart.roundedBarCharts.js"></script>
-  <!-- <script src="../../js/data-table.js"></script> -->
+  <script src="../../js/data-table.js"></script>
 </body>
 
 

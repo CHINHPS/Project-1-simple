@@ -73,15 +73,9 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#" aria-expanded="false" aria-controls="general-pages">
+            <a class="nav-link" href="?page=invoice">
                 <i class="icon-book menu-icon"></i>
-                <span class="menu-title">Thông tin tài khoản</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="pages/apps/email.html">
-                <i class="icon-mail menu-icon"></i>
-                <span class="menu-title">E-mail</span>
+                <span class="menu-title">Hóa đơn</span>
             </a>
         </li>
         <li class="nav-item">
