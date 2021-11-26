@@ -59,34 +59,6 @@ function GuiMailXacNhan($emailKhach)
         $mail->Subject = 'Kích hoạt tài khoản Galaxy Phone';
         //randomkey = mã hóa md5 của email từ kí tự 7 đến -3
         $noidungthu = '<div style="background-color:#f9f9f9">
-
-    <div style="margin:0px auto;max-width:640px;background:transparent">
-        <table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:transparent" align="center" border="0">
-            <tbody>
-                <tr>
-                    <td style="text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:40px 0px">
-                        <div aria-labelledby="mj-column-per-100" class="m_-4030199233842470800mj-column-per-100" style="vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%">
-                            <table role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                                <tbody>
-                                    <tr>
-                                        <td style="word-break:break-word;font-size:0px;padding:0px" align="center">
-                                            <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-spacing:0px" align="center" border="0">
-                                                <tbody>
-                                                    <tr>
-                                                        <td style="width:138px"><a href="" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://click.discord.com/ls/click?upn%3DqDOo8cnwIoKzt0aLL1cBeARJoBrGSa2vu41A5vK-2B4ute1kWYI6zNuxQFCVciWW4KdUUd_XTY1IDR8LvsDdMzMMBokT5nbTq1s-2FK2vS5DKSa8-2FINgvTwFanoU3P2kp0oWuHejzJ4gSc2B8kDRPaWKmsflin8mwlRIocpjjtRqFf5vsO-2Fu-2FJPJhJJE07bSXnr-2FpjJ-2FxAKvnEZxKo88MI0OE3A-2FBQo-2BwW7CiQ-2FRUF1Oamdc02Dyz1Q0QkouDnx-2BakIvualLAYCOKo7dBGDmDPiMIWcqUUAjIHjcqBnG7bA5DE9uGRtfEdiO7KOKXPP-2FYatlp1IJmoZNhjRXvirbqARt7VwxxdA-3D-3D&amp;source=gmail&amp;ust=1637996964084000&amp;usg=AOvVaw3YwSz-h9llDnfGnwf_z-aq"><img alt="" title="" height="38px" src="https://ci3.googleusercontent.com/proxy/xbGGyYfNO7rOwB3cJ8GvQ_6GUpaWXoqPKpUmrMJDjD2gVRFyUARcwh0qhbWv92i3qb1zJj3c9PYNULP_B3wHWJY--pjeXQiAyt6s5ETJieJ41Gy3loYi3AINdO8gJTk=s0-d-e1-ft#https://cdn.discordapp.com/email_assets/592423b8aedd155170617c9ae736e6e7.png" width="138" class="CToWUd"></a></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
     <div style="max-width:640px;margin:0 auto;border-radius:4px;overflow:hidden">
         <div style="margin:0px auto;max-width:640px;background:#ffffff">
             <table role="presentation" cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#ffffff" align="center" border="0">

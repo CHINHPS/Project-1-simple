@@ -62,6 +62,16 @@ function getInvoiceDetail($idHoadon){
    $sql = "SELECT * FROM chi_tiet_hoa_don Where idHoadon=?";
    return pdo_query($sql,$idHoadon);
 }
+//Lấy bình luận của sản phẩm
+function getCommentByIDSP($idSP){
+   $sql = "SELECT * FROM binh_luan Where idSP=?";
+   return pdo_query($sql,$idSP);
+}
+//Thêm bình luận
+function comment($idUser,$anHien,$noiDung,$idSP){
+   $sql = "INSERT INTO (idUser,anHien,noiDung,idSP) VALUE (?,?,?,?)";
+   return pdo_execute($sql,$idUser,$anHien,$noiDung,$idSP);
+}
 function taoLinkPhanTrang($base_url, $total_rows, $page_num, $page_size=5) {
    $offset=3;
    if($base_url == Get_current_link()) $get_defaut = '?'; else $get_defaut = '&';

@@ -1,3 +1,7 @@
+<?php
+    $loginUser = $_SESSION['login_user'];
+    getCommentByIDSP($detai_pro['idSP']);
+?>
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v12.0&appId=101714467363330&autoLogAppEvents=1" nonce="1RUbz9db"></script>
 <div class="site__body">
