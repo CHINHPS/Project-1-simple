@@ -15,7 +15,10 @@ function Kiem_Tra_Email_Tontai($email){
   $sql="SELECT email FROM tai_khoan WHERE email ='$email'";
   return pdo_query($sql);
 }
-
+function getUserByIDUser($idUser){
+  $sql="SELECT * FROM tai_khoan WHERE idUser=?";
+  return pdo_query_one($sql,$idUser);
+}
 //Lấy tất cả email User
 function getEmailUser(){
   $sql="SELECT email FROM  tai_khoan";

@@ -69,7 +69,7 @@ function getCommentByIDSP($idSP){
 }
 //Thêm bình luận
 function comment($idUser,$anHien,$noiDung,$idSP){
-   $sql = "INSERT INTO (idUser,anHien,noiDung,idSP) VALUE (?,?,?,?)";
+   $sql = "INSERT INTO binh_luan (idUser,anHien,noiDung,idSP) VALUE (?,?,?,?)";
    return pdo_execute($sql,$idUser,$anHien,$noiDung,$idSP);
 }
 function taoLinkPhanTrang($base_url, $total_rows, $page_num, $page_size=5) {

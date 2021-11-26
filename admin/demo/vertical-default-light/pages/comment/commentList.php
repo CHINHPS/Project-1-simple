@@ -27,7 +27,7 @@
                                     <td><?php if ($binh_luan['anHien'] == 1) echo "Ẩn";
                                         else echo "Hiện"; ?></td>
                                     <td><?= $binh_luan['noiDung']; ?></td>
-                                    <td><?= date("d/m/Y h:m:s", strtotime($binh_luan['ngayDang'])); ?></td>
+                                    <td><?= date("d/m/Y h:i:s", strtotime($binh_luan['ngayDang'])); ?></td>
                                     <td><?= $binh_luan['idSP']; ?></td>
                                     <td style="text-align: center;">
                                         <a href="?page=hideComment&idBL=<?= $binh_luan['idBL']; ?>"><button class="btn btn-outline-primary" <?php if($binh_luan['anHien']==1) $anHien="ẩn"; else $anHien="hiện";  ?>  onclick="return confirm('Bạn có muốn <?=$anHien?> bình luận này ?')"><?php if($binh_luan['anHien']==0) echo "Ẩn"; else echo "Hiện";?></button></a>

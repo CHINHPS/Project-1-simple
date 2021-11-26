@@ -11,7 +11,7 @@
         <div class="order-header">
             <div class="order-header__actions"><a href="user/history" class="btn btn-xs btn-secondary">Trở về danh sách</a></div>
             <h5 class="order-header__title">Mã hóa đơn #<?=$hoadon['idHoaDon'];?></h5>
-            <div class="order-header__subtitle">Đã được đặt lúc <mark class="order-header__date"><?=date("d/m/Y h:m",strtotime($hoadon['ngayMua']));?></mark></div>
+            <div class="order-header__subtitle">Đã được đặt lúc <mark class="order-header__date"><?=date("d/m/Y h:i",strtotime($hoadon['ngayMua']));?></mark></div>
         </div>
         <div class="card-divider"></div>
         <div class="card-table">

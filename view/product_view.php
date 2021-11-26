@@ -1,6 +1,10 @@
 <?php
     $loginUser = $_SESSION['login_user'];
-    getCommentByIDSP($detai_pro['idSP']);
+    if(isset($_POST['btn'])){
+        $comment = $_POST['comment'];
+        comment($loginUser['idUser'],0,$comment,$detai_pro['idSP']);
+    }
+    $binhLuan = getCommentByIDSP($detai_pro['idSP']);
 ?>
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v12.0&appId=101714467363330&autoLogAppEvents=1" nonce="1RUbz9db"></script>
@@ -8,7 +12,7 @@
     <div class="page-header">
         <div class="page-header__container container">
             <div class="page-header__breadcrumb">
-                
+
             </div>
         </div>
     </div>
@@ -30,17 +34,17 @@
                                 <div class="owl-carousel owl-loaded owl-drag" id="product-image">
                                     <div class="owl-stage-outer">
                                         <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 2655px;">
-                                            
-                                            
+
+
                                             <div class="owl-item active" style="width: 531px;">
                                                 <div class="product-image product-image--location--gallery">
-                                                    <a href="<?=$detai_pro['hinhAnh'] ?>" data-width="700" data-height="700" class="product-image__body" target="_blank">
-                                                        <img class="product-image__img" src="<?=$detai_pro['hinhAnh'] ?>" alt="">
+                                                    <a href="<?= $detai_pro['hinhAnh'] ?>" data-width="700" data-height="700" class="product-image__body" target="_blank">
+                                                        <img class="product-image__img" src="<?= $detai_pro['hinhAnh'] ?>" alt="">
                                                     </a>
                                                 </div>
                                             </div>
-                                            
-                                          
+
+
                                         </div>
                                     </div>
                                     <div class="owl-nav disabled">
@@ -59,7 +63,7 @@
                     <!-- .product__gallery / end -->
                     <!-- .product__info -->
                     <div class="product__info">
-                       
+
                         <h1 class="product__name"><?php echo $detai_pro['tenSP'] ?></h1>
                         <div class="product__rating">
                             <div class="product__rating-stars">
@@ -69,25 +73,25 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="product__rating-legend"><a><?=number_format($detai_pro['luotXem'])?> Lượt xem</a>
+                            <div class="product__rating-legend"><a><?= number_format($detai_pro['luotXem']) ?> Lượt xem</a>
                             </div>
                         </div>
                         <ul class="product__meta">
-                            <li class="product__meta-availability">Thể loại: <span class="text-success"><?=get_name_category($detai_pro['idLoai'])['tenLoai']?></span>
+                            <li class="product__meta-availability">Thể loại: <span class="text-success"><?= get_name_category($detai_pro['idLoai'])['tenLoai'] ?></span>
                             </li>
-                         
+
                         </ul>
                     </div><!-- .product__info / end -->
                     <!-- .product__sidebar -->
                     <div class="product__sidebar">
-                     
-                        <div class="product__prices"><?=number_format($detai_pro['donGia'])?>đ</div>
-                        
+
+                        <div class="product__prices"><?= number_format($detai_pro['donGia']) ?>đ</div>
+
                         <form class="product__options" action="?act=my_cart" method="POST">
-                                    <input type="hidden" name="id_prod" value="<?php echo $detai_pro['idSP'] ?>">
-                                    <input type="hidden" name="gia" value="<?php echo $detai_pro['donGia'] ?>">
-                                    <input type="hidden" name="tensp" value="<?php echo $detai_pro['tenSP'] ?>">
-                                    <input type="hidden" name="hinhanh" value="<?php echo $detai_pro['hinhAnh'] ?>">
+                            <input type="hidden" name="id_prod" value="<?php echo $detai_pro['idSP'] ?>">
+                            <input type="hidden" name="gia" value="<?php echo $detai_pro['donGia'] ?>">
+                            <input type="hidden" name="tensp" value="<?php echo $detai_pro['tenSP'] ?>">
+                            <input type="hidden" name="hinhanh" value="<?php echo $detai_pro['hinhAnh'] ?>">
                             <div class="form-group product__option"><label class="product__option-label" for="product-quantity">Số lượng</label>
                                 <div class="product__actions">
                                     <div class="product__actions-item">
@@ -97,7 +101,7 @@
                                         </div>
                                     </div>
                                     <div class="product__actions-item product__actions-item--addtocart"><input type="submit" name="addtocart" class="btn btn-primary btn-lg" value="Thêm giỏ hàng"></div>
-                                  
+
                                 </div>
                             </div>
                         </form><!-- .product__options / end -->
@@ -106,7 +110,7 @@
 
                         <div class="product__share-links share-links">
                             <ul class="share-links__list">
-                            <div class="fb-like" data-href="<?=$current_link?>" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
+                                <div class="fb-like" data-href="<?= $current_link ?>" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
                             </ul>
                         </div>
                     </div>
@@ -122,8 +126,8 @@
                     <div class="product-tabs__pane product-tabs__pane--active" id="tab-description">
                         <div class="typography">
                             <h3>Đặc điểm kỹ thuật</h3>
-                            <p><?=$detai_pro['moTa']?></p>
-                            
+                            <p><?= $detai_pro['moTa'] ?></p>
+
                         </div>
                     </div>
                     <div class="product-tabs__pane" id="tab-specification">
@@ -134,63 +138,63 @@
                                 <div class="spec__row">
                                     <div class="spec__name">Màn hình </div>
                                     <div class="spec__value">
-                                        <?=json_decode($detai_pro[ 'thongSo'],true)[ 'manHinh']?>
+                                        <?= json_decode($detai_pro['thongSo'], true)['manHinh'] ?>
                                     </div>
                                 </div>
                                 <div class="spec__row">
                                     <div class="spec__name">Hệ điều hành </div>
                                     <div class="spec__value">
-                                        <?=json_decode($detai_pro[ 'thongSo'],true)[ 'heDieuHanh']?>
+                                        <?= json_decode($detai_pro['thongSo'], true)['heDieuHanh'] ?>
                                     </div>
                                 </div>
                                 <div class="spec__row">
                                     <div class="spec__name">Camera trước </div>
                                     <div class="spec__value">
-                                        <?=json_decode($detai_pro[ 'thongSo'],true)[ 'cameraTruoc']?>
+                                        <?= json_decode($detai_pro['thongSo'], true)['cameraTruoc'] ?>
                                     </div>
                                 </div>
                                 <div class="spec__row">
                                     <div class="spec__name">Camera sau </div>
                                     <div class="spec__value">
-                                        <?=json_decode($detai_pro[ 'thongSo'],true)[ 'cameraSau']?>
+                                        <?= json_decode($detai_pro['thongSo'], true)['cameraSau'] ?>
                                     </div>
                                 </div>
                                 <div class="spec__row">
                                     <div class="spec__name">Vi xử lý </div>
                                     <div class="spec__value">
-                                        <?=json_decode($detai_pro[ 'thongSo'],true)[ 'Chip']?>
+                                        <?= json_decode($detai_pro['thongSo'], true)['Chip'] ?>
                                     </div>
                                 </div>
                                 <div class="spec__row">
                                     <div class="spec__name">RAM </div>
                                     <div class="spec__value">
-                                        <?=json_decode($detai_pro[ 'thongSo'],true)[ 'RAM']?>
+                                        <?= json_decode($detai_pro['thongSo'], true)['RAM'] ?>
                                     </div>
                                 </div>
                                 <div class="spec__row">
                                     <div class="spec__name">Bộ nhớ trong </div>
                                     <div class="spec__value">
-                                        <?=json_decode($detai_pro[ 'thongSo'],true)[ 'boNhoTrong']?>
+                                        <?= json_decode($detai_pro['thongSo'], true)['boNhoTrong'] ?>
                                     </div>
                                 </div>
                                 <div class="spec__row">
                                     <div class="spec__name">Hệ điều hành </div>
                                     <div class="spec__value">
-                                        <?=json_decode($detai_pro[ 'thongSo'],true)[ 'SIM']?>
+                                        <?= json_decode($detai_pro['thongSo'], true)['SIM'] ?>
                                     </div>
                                 </div>
                                 <div class="spec__row">
                                     <div class="spec__name">Pin </div>
                                     <div class="spec__value">
-                                        <?=json_decode($detai_pro[ 'thongSo'],true)[ 'pinVSac']?>
+                                        <?= json_decode($detai_pro['thongSo'], true)['pinVSac'] ?>
                                     </div>
                                 </div>
 
                             </div>
-                         
+
                         </div>
                     </div>
-               
+
                 </div>
             </div>
         </div>
@@ -200,43 +204,45 @@
         <div class="container">
             <section class="post__section">
                 <h4 class="post__section-title">Bình luận</h4>
-                <ol class="comments-list comments-list--level--0">
-                    <li class="comments-list__item">
-                        <div class="comment">
-                            <div class="comment__avatar"><a href="#"><img
-                                        src="images/avatars/avatar-1.jpg" alt=""></a></div>
-                            <div class="comment__content">
-                                <div class="comment__header">
-                                    <div class="comment__author"><a href="#">Jessica Moore</a></div>
-                                    
+                <!-- <ol class="comments-list comments-list--level--0"> -->
+                    <div class="comments-list__item" list-style-type: none;>
+                        <?php foreach ($binhLuan as $binh_luan) { ?>
+                            <div class="comment">
+                                <div class="comment__avatar"><a href="#"><img src="images/avatars/avatar-1.jpg" alt=""></a></div>
+                                <div class="comment__content">
+                                    <div class="comment__header">
+                                        <?php $tai_khoan_binh_luan = getUserByIDUser($binh_luan['idUser']) ?>
+                                        <div class="comment__author"><?= $tai_khoan_binh_luan['ten']; ?></div>
+
+                                    </div>
+                                    <div class="comment__text"><?= $binh_luan['noiDung']; ?></div>
+                                    <div class="comment__date"> Đăng lúc <?= date("d/m/Y h:i", strtotime($binh_luan['ngayDang'])); ?></div>
                                 </div>
-                                <div class="comment__text">Aliquam ullamcorper elementum sagittis. Etiam
-                                    lacus lacus, mollis in mattis in, vehicula eu nulla. Nulla nec
-                                    tellus pellentesque.</div>
-                                <div class="comment__date"> Ngày đăng</div>
                             </div>
+                            <hr>
+                        <?php } ?>
                         </div>
-                    
-                    </li>
-                </ol>
+                <!-- </ol> -->
             </section>
+            <?php if ($loginUser != null) echo '
             <section class="post__section">
                 <h4 class="post__section-title">Viết bình luận của bạn</h4>
-                <form>
-                    <div class="form-row">
-                        <div class="form-group col-md-4"><label for="comment-first-name">Họ</label> <input type="text" class="form-control"
-                                id="comment-first-name" placeholder="Họ"></div>
-                        <div class="form-group col-md-4"><label for="comment-last-name">Tên</label> <input type="text" class="form-control"
-                                id="comment-last-name" placeholder="Tên"></div>
-                        <div class="form-group col-md-4"><label for="comment-email">Địa chỉ Email</label> <input type="email" class="form-control"
-                                id="comment-email" placeholder="Địa chỉ Email"></div>
-                    </div>
+                <form method="post">
                     <div class="form-group"><label for="comment-content">Bình luận</label> <textarea
-                            class="form-control" id="comment-content" rows="6"></textarea></div>
-                    <div class="form-group mt-4"><button type="submit"
+                            class="form-control" id="comment-content" name="comment" rows="6"></textarea></div>
+                    <div class="form-group mt-4"><button type="submit" name="btn"
                             class="btn btn-primary btn-lg">Gửi bình luận</button></div>
                 </form>
             </section>
+            ';
+            else {
+                echo '
+            <section class="post__section" style="text-align: center">
+                <h4 class="post__section-title">Viết bình luận của bạn</h4>
+                <a class="btn btn-primary btn-lg" href="login-account" role="button">ĐĂNG NHẬP ĐỂ BÌNH LUẬN</a>
+            </section>';
+            }
+            ?>
         </div>
     </div>
     <div class="block block-products-carousel" data-layout="grid-5" data-mobile-grid-columns="2">
@@ -383,7 +389,7 @@
                                 </div>
                             </div>
 
-                            
+
                         </div>
                     </div>
 
