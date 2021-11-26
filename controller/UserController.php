@@ -1,5 +1,7 @@
 <?php
-$loginUser = $_SESSION['login_user'];
+if (isset($_SESSION['login_user'])){
+    $loginUser = $_SESSION['login_user'];
+}
 if(isset($_GET['action_user']))
     $action_user = $_GET['action_user'];
 else

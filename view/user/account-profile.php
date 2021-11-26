@@ -1,5 +1,7 @@
 <?php
-    $loginUser = $_SESSION['login_user'];
+    if (isset($_SESSION['login_user'])){
+        $loginUser = $_SESSION['login_user'];
+    }
     echo $loginUser;
     if(isset($_POST['btn'])){
         $hoVaTen = $_POST['hoVaTen'];

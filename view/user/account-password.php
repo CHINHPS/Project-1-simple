@@ -1,5 +1,7 @@
 <?php
-    $loginUser = $_SESSION['login_user'];
+    if (isset($_SESSION['login_user'])){
+        $loginUser = $_SESSION['login_user'];
+    }
     if(isset($_POST['btn'])){
         $currentPass = $_POST['password-current'];
         $newPass = $_POST['password-new'];

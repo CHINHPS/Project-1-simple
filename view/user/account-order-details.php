@@ -1,5 +1,7 @@
 <?php
-    $loginUser = $_SESSION['login_user'];
+    if (isset($_SESSION['login_user'])){
+        $loginUser = $_SESSION['login_user'];
+    }
     $idHoaDon = $_GET['id'];
     $hoadon = getInvoice($idHoaDon);
     $chiTietHoaDon = getInvoiceDetail($idHoaDon);
