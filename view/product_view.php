@@ -1,5 +1,7 @@
 <?php
-    $loginUser = $_SESSION['login_user'];
+    if (isset($_SESSION['login_user'])){
+        $loginUser = $_SESSION['login_user'];
+    }
     if(isset($_POST['btn'])){
         $comment = $_POST['comment'];
         comment($loginUser['idUser'],0,$comment,$detai_pro['idSP']);
