@@ -208,7 +208,7 @@
                     <div class="comments-list__item" list-style-type: none;>
                         <?php foreach ($binhLuan as $binh_luan) { ?>
                             <div class="comment">
-                                <div class="comment__avatar"><a href="#"><img src="images/avatars/avatar-1.jpg" alt=""></a></div>
+                                <div class="comment__avatar"><a href="#"><img src="../libary/images/avatars/261398589_1388375961559165_1613070334186862016_n.png" alt=""></a></div>
                                 <div class="comment__content">
                                     <div class="comment__header">
                                         <?php $tai_khoan_binh_luan = getUserByIDUser($binh_luan['idUser']) ?>

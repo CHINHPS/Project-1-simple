@@ -15,9 +15,9 @@
                         <h1 class="post-header__title"><?php echo $detail_news['tieuDe'] ?>
                         </h1>
                         <div class="post-header__meta">
-                            <div class="post-header__meta-item">Đăng bởi <a href="#">Jessica Moore</a></div>
+                            <?php $nguoiDang = getUserByIDUser($detail_news['idUser']) ?>
+                            <div class="post-header__meta-item">Đăng bởi <?=$nguoiDang['ten']?></div>
                             <div class="post-header__meta-item"><a href="#"><?php echo $detail_news['ngayDang'] ?></a></div>
-                            <div class="post-header__meta-item"><a href="#">4 Bình luận</a></div>
                         </div>
                     </div>
                     <div class="post__featured"><a href="#"><img src="<?php echo $detail_news['hinhAnh'] ?>"
