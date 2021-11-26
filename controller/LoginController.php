@@ -23,15 +23,19 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if (isset($_POST['login']) && ($_POST['login'])) {
                 $check_login = check_login($email, $pass);
                 if (is_array($check_login)) {
-                    $_SESSION['login_user'] = $check_login;
-                    echo '<script language="javascript">';
-                    echo 'alert(" Đăng nhập thành công ! ")';
-                    echo '</script>';
-                    echo "<script>
-                            window.location='./';
-                            </script>";
+                    if ($check_login['kichHoat']==1){
+                        $_SESSION['login_user'] = $check_login;
+                        echo '<script language="javascript">';
+                        echo 'alert(" Đăng nhập thành công ! ")';
+                        echo '</script>';
+                        echo "<script>
+                                window.location='./';
+                                </script>";
+                    } else {
+                        $error['not_active'] = "Tài khoản của bạn chưa được kích hoạt !";
+                    }    
                 } else {
-                    $tb = "Tài khoản không tồn tại !";
+                    $tb = "Email đăng nhập hoặc mật khẩu không đúng !";
                 }
             }
         }

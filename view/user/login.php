@@ -20,7 +20,7 @@
 
                             <form method="POST" >
                                 <input type="hidden" name="type_" value="login_account">
-                                <div class="form-group"><label>Địa chỉ Email</label><br><span style="color: red; font-weight:bold;"><?php if(isset($error['not_email']) && ($error['not_email'] != "") ) echo $error['not_email']; ?></span> <input name="email" type="email"
+                                <div class="form-group"><label>Địa chỉ Email</label><br><span style="color: red; font-weight:bold;"><?php if(isset($error['not_email']) && ($error['not_email'] != "") ) echo $error['not_email']; if(isset($error['not_active'])) echo $error['not_active']; ?></span> <input name="email" type="email"
                                         class="form-control" placeholder="Nhập Email"></div>
                                 <div class="form-group"><label>Mật khẩu</label> <br><span style="color: red; font-weight:bold;"><?php if(isset($error['not_pass']) && ($error['not_pass'] != "") ) echo $error['not_pass']; ?></span> <input name="pass" type="password"
                                         class="form-control" placeholder="Mật khẩu"> <small
@@ -29,12 +29,10 @@
                                 <div class="form-group">
                                     <div class="form-check"><span class="form-check-input input-check"><span
                                                 class="input-check__body"><input class="input-check__input"
-                                                    type="checkbox" id="login-remember"> <span
-                                                    class="input-check__box"></span> <svg
+                                                    type="checkbox" id="login-remember"> <svg
                                                     class="input-check__icon" width="9px" height="7px">
                                                     <use xlink:href="../libary/images/sprite.svg#check-9x7"></use>
-                                                </svg> </span></span><label class="form-check-label"
-                                            for="login-remember">Ghi nhớ tôi</label> 
+                                                </svg> </span></span>
                                         </div>
     
                                         <span style="color: red; font-weight:bold;"><?php if(isset($tb) && $tb != "" ) echo $tb; ?></span>
