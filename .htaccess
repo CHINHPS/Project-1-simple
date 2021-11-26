@@ -1,9 +1,14 @@
-RewriteEngine on
-RewriteRule ^user/([a-zA-Z0-9_-]+)$ controller/?act=view_account&action_user=$1
+RewriteEngine On
+
+RewriteRule ^user/([a-zA-Z0-9_-]+)$ controller/?act=view_account&action_user=$1 [QSA,L]
+
+RewriteRule ^user/order-detail-view/([0-9]+)$ controller/?act=view_account&action_user=order-detail-view&id=$1 [QSA,L]
 
 RewriteRule ^view-product/([a-zA-Z0-9_-]+)/([0-9]+)$ controller/?act=detail_prod&id_source=$2
 
 RewriteRule ^view-news/([a-zA-Z0-9_-]+)/([0-9]+)$ controller/?act=detail_news&id_source=$2
+
+RewriteRule ^product-type/([a-zA-Z0-9_-]+)/([0-9]+)$ controller/?act=product_type&id_category=$2
 
 RewriteRule ^login-account$ controller/?act=login_account
 

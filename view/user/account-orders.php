@@ -22,7 +22,7 @@
                                 <td><?=$hoa_don['idHoaDon']?></td>
                                 <td><?=date("d/m/Y h:m:s",strtotime($hoa_don['ngayMua']))?></td>
                                 <td><?=$hoa_don['thanhTien']?></td>
-                                <td>Chi tiết</td>
+                                <td><a href="user/order-detail-view?id=<?=$hoa_don['idHoaDon'];?>">Chi tiết</a></td>
                             </tr>
                         <?php } ?>
                     </tbody>

@@ -1,4 +1,5 @@
 <?php
+$loginUser = $_SESSION['login_user'];
 if(isset($_GET['action_user']))
     $action_user = $_GET['action_user'];
 else
@@ -20,6 +21,11 @@ switch($action_user){
         break;
     case 'history':
         $view_page_user = '../view/user/account-orders.php';
+        $main = '../view/user/header_user.php';
+        include_once '../view/header.php';
+        break;
+    case 'order-detail-view':
+        $view_page_user = '../view/user/account-order-details.php';
         $main = '../view/user/header_user.php';
         include_once '../view/header.php';
         break;

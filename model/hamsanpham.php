@@ -39,5 +39,14 @@ function get_name_category($idCategory){
    $sql = "SELECT * FROM loai_san_pham Where idLoai=?";
    return pdo_query_one($sql,$idCategory);
 }
-
+//Lấy 1 hóa đơn
+function getInvoice($idHoaDon){
+   $sql = "SELECT * FROM hoa_don Where idHoaDon=?";
+   return pdo_query_one($sql,$idHoaDon);
+}
+//Lấy chi tiết hóa đơn
+function getInvoiceDetail($idHoadon){
+   $sql = "SELECT * FROM chi_tiet_hoa_don Where idHoadon=?";
+   return pdo_query($sql,$idHoadon);
+}
 ?>
