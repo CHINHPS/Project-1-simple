@@ -3,6 +3,7 @@
         <div class="card-body profile-card__body">
             <div class="profile-card__avatar"><img src="images/avatars/avatar-3.jpg" alt="">
             </div>
+            <?php $loginUser = $_SESSION['login_user']; ?>
             <div class="profile-card__name"><?=$loginUser['ten']?></div>
             <div class="profile-card__email"><?=$loginUser['email']?></div>
             <div class="profile-card__edit"><a href="account-profile.php"
@@ -13,8 +14,8 @@
         <div class="address-card__badge">Địa chỉ mặc định</div>
         <div class="address-card__body">
             <div class="address-card__name"><?=$loginUser['ten']?></div>
-            <div class="address-card__row">Random Federation<br>115302, Moscow<br>ul.
-                Varshavskaya, 15-2-178</div>
+            <div class="address-card__row"><br>
+                </div>
             <div class="address-card__row">
                 <div class="address-card__row-title">Số điện thoại</div>
                 <div class="address-card__row-content"><?=$loginUser['soDienThoai']?></div>
@@ -23,7 +24,7 @@
                 <div class="address-card__row-title">Địa chỉ Email</div>
                 <div class="address-card__row-content"><?=$loginUser['email']?></div>
             </div>
-            <div class="address-card__footer"><a href="account-edit-address.php">Sửa địa chỉ</a></div>
+            <div class="address-card__footer"><a href="account-edit-address.php"></a></div>
         </div>
     </div>
     <div class="dashboard__orders card">
