@@ -176,13 +176,13 @@
                                         <div class="product-card__badge product-card__badge--hot">Hot</div>
                                     </div>
                                     <div class="product-card__image product-image">
-                                        <a href="view-product/<?=seo1($sanphams['tenSP'])?>/<?=$sanpham_bcss['idSP']?>" class="product-image__body">
+                                        <a href="view-product/<?=seo1($sanpham_bcss['tenSP'])?>/<?=$sanpham_bcss['idSP']?>" class="product-image__body">
                                             <img class="product-image__img" src="<?=$sanpham_bcss['hinhAnh'] ?>" alt="">
                                         </a>
                                     </div>
                                     <div class="product-card__info">
                                         <div class="product-card__name">
-                                            <a href="view-product/<?=seo1($sanphams['tenSP'])?>/<?=$sanpham_bcss['idSP'] ?>">
+                                            <a href="view-product/<?=seo1($sanpham_bcss['tenSP'])?>/<?=$sanpham_bcss['idSP'] ?>">
                                                 <?=$sanpham_bcss['tenSP'] ?>
                                             </a>
                                         </div>
