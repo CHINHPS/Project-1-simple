@@ -15,7 +15,7 @@
             $error2 = "Mật khẩu mới không thể trùng với mật khẩu hiện tại";
         }
         if ($confirmPass==null){
-            $error3 = "Vui lòng nhập lại mật khẩu";
+            $error3 = "Vui lòng nhập lại mật khẩu mới";
         } else if ($newPass!=$confirmPass){
             $error3 = "Nhập lại mật khẩu không đúng";
         }
