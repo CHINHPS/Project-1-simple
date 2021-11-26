@@ -51,29 +51,6 @@
                     
                     </div>
                     <section class="post__section">
-                        <h4 class="post__section-title">Các tin liên quan</h4>
-                        <div class="related-posts">
-                            <div class="related-posts__list">
-                                <div class="related-posts__item post-card post-card--layout--related">
-                                    <div class="post-card__image"><a href="#"><img src="images/posts/post-1.jpg"
-                                                alt=""></a></div>
-                                    <div class="post-card__info">
-                                        <div class="post-card__name"><a href="#">Tiêu đề</a></div>
-                                        <div class="post-card__date">Ngày đăng</div>
-                                    </div>
-                                </div>
-                                <div class="related-posts__item post-card post-card--layout--related">
-                                    <div class="post-card__image"><a href="#"><img src="images/posts/post-2.jpg"
-                                                alt=""></a></div>
-                                    <div class="post-card__info">
-                                        <div class="post-card__name"><a href="#">Tiêu đề</a></div>
-                                        <div class="post-card__date">Ngày đăng</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="post__section">
                         <h4 class="post__section-title">Bình luận</h4>
                         <ol class="comments-list comments-list--level--0">
                             <li class="comments-list__item">
