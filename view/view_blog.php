@@ -50,45 +50,6 @@
                         </div>
                     
                     </div>
-                    <section class="post__section">
-                        <h4 class="post__section-title">Bình luận</h4>
-                        <ol class="comments-list comments-list--level--0">
-                            <li class="comments-list__item">
-                                <div class="comment">
-                                    <div class="comment__avatar"><a href="#"><img
-                                                src="images/avatars/avatar-1.jpg" alt=""></a></div>
-                                    <div class="comment__content">
-                                        <div class="comment__header">
-                                            <div class="comment__author"><a href="#">Jessica Moore</a></div>
-                                            
-                                        </div>
-                                        <div class="comment__text">Aliquam ullamcorper elementum sagittis. Etiam
-                                            lacus lacus, mollis in mattis in, vehicula eu nulla. Nulla nec
-                                            tellus pellentesque.</div>
-                                        <div class="comment__date"> Ngày đăng</div>
-                                    </div>
-                                </div>
-                            
-                            </li>
-                        </ol>
-                    </section>
-                    <section class="post__section">
-                        <h4 class="post__section-title">Viết bình luận của bạn</h4>
-                        <form>
-                            <div class="form-row">
-                                <div class="form-group col-md-4"><label for="comment-first-name">Họ</label> <input type="text" class="form-control"
-                                        id="comment-first-name" placeholder="Họ"></div>
-                                <div class="form-group col-md-4"><label for="comment-last-name">Tên</label> <input type="text" class="form-control"
-                                        id="comment-last-name" placeholder="Tên"></div>
-                                <div class="form-group col-md-4"><label for="comment-email">Địa chỉ Email</label> <input type="email" class="form-control"
-                                        id="comment-email" placeholder="Địa chỉ Email"></div>
-                            </div>
-                            <div class="form-group"><label for="comment-content">Bình luận</label> <textarea
-                                    class="form-control" id="comment-content" rows="6"></textarea></div>
-                            <div class="form-group mt-4"><button type="submit"
-                                    class="btn btn-primary btn-lg">Gửi bình luận</button></div>
-                        </form>
-                    </section>
                 </div>
             </div>
         </div>
