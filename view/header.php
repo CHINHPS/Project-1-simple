@@ -14,7 +14,7 @@ $tin_nb=get_All_list_news_nb();
     <title>Stroyka</title>
     <link rel="icon" type="image/png" href="libary/images/favicon.png">
     <!-- fonts -->
-    <base href="http://localhost/duan1/duan1nhom6/">
+    <base href="http://localhost/DUAN1_2/github/duan1nhom6/">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i">
     <!-- css -->
@@ -150,7 +150,8 @@ $tin_nb=get_All_list_news_nb();
                                                     <?php foreach(get_All_category_product() as $category_product){ ?>
 
                                                     <li class="departments__item">
-                                                        <a class="departments__item-link" href="#">
+                                                        <a  class="departments__item-link" 
+                                                            href="product-type/<?=seo1($category_product['tenLoai'])?>/<?=$category_product['idLoai']?>">
                                                             <i class="fas fa-mobile-alt" style="margin-right: 5px"></i>
                                                              <?=$category_product['tenLoai']?>
                                                         </a>

@@ -27,6 +27,43 @@ switch ($action) {
         $main = '../view/home.php';
         include_once '../view/header.php';
         break;
+    
+    case 'product_type':
+
+        if(!isset($_GET['id_category']))
+            die('Đường dẫn của bạn bị sai rồi :(((');
+
+        $id_category = (int)$_GET['id_category'];
+
+        $name_page = get_name_category($id_category);
+        if($name_page == false)
+            die('Đường dẫn của bạn sai hoặc doanh mục đã bị xóa khỏi hệ thống!!!');
+
+        # phân trang trong loại
+        $page_size = 3; // số sản phẩm hiển thị
+        $page_num = 1;
+        if (isset($_GET['page_num'])) $page_num = $_GET['page_num']+0;
+        if ($page_num<=0) $page_num=1;
+
+        var_dump($page_num);
+
+        $total_rows = get_All_product_by_category_COUNT($id_category);
+        
+
+        $base_url = Get_current_link();
+
+        
+        # lấy loại sp và danh sách của sp theo loại
+        $danhmuc = get_All_category_product();
+        $sanpham = get_All_product_by_category($id_category,$page_num, $page_size);
+
+        # tên để hiển thị 
+        $name_page = $name_page['tenLoai'];
+
+        $main = '../view/product_all.php';
+        include_once '../view/header.php';
+        break;
+
 
     case 'login_account':
 
@@ -107,6 +144,7 @@ switch ($action) {
         $sanpham = get_All_Products();
         $danhmuc = get_All_category_product();
 
+        $name_page = 'Tất cả sản phẩm';
         $main = '../view/product_all.php';
         include_once '../view/header.php';
         break;
@@ -119,7 +157,7 @@ switch ($action) {
             if(!isset($detai_pro['idSP']))
                 die('Sản phẩm không tồn tại');
 
-            $current_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+            $current_link =  Get_current_link();
             
             #thêm lượt xem cho sản phẩm
             set_view_product($id_pro);
