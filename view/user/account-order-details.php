@@ -1,14 +1,17 @@
 <?php
+    $loginUser = $_SESSION['login_user'];
     $idHoaDon = $_GET['id'];
     $hoadon = getInvoice($idHoaDon);
     $chiTietHoaDon = getInvoiceDetail($idHoaDon);
+    $tongCong = 0;
+    $giamGia = 0;
 ?>
 <div class="col-12 col-lg-9 mt-4 mt-lg-0">
     <div class="card">
         <div class="order-header">
             <div class="order-header__actions"><a href="user/history" class="btn btn-xs btn-secondary">Trở về danh sách</a></div>
             <h5 class="order-header__title">Mã hóa đơn #<?=$hoadon['idHoaDon'];?></h5>
-            <div class="order-header__subtitle">Đã được đặt lúc <mark class="order-header__date">19 October, 2020</mark> và hiện đang <mark class="order-header__status">Đang chờ</mark>.</div>
+            <div class="order-header__subtitle">Đã được đặt lúc <mark class="order-header__date"><?=date("d/m/Y h:m",strtotime($hoadon['ngayMua']));?></mark></div>
         </div>
         <div class="card-divider"></div>
         <div class="card-table">
@@ -21,37 +24,36 @@
                         </tr>
                     </thead>
                     <tbody class="card-table__body card-table__body--merge-rows">
+                        <?php foreach($chiTietHoaDon as $chi_tiet_hoa_don) { ?>
                         <tr>
-                            <td>Electric Planer Brandix KL370090G 300 Watts × 2</td>
-                            <td>$1,398.00</td>
+
+                            <?$sanPham = get_detail_product_id($chi_tiet_hoa_don['idSP']);
+                            $giamGia = $giamGia + $sanPham['giamGia'];
+                            ?>
+                            <td><?=$chi_tiet_hoa_don['tenSP']?> x <?=$chi_tiet_hoa_don['soLuong']?></td>
+                            <td><?=number_format($chi_tiet_hoa_don['donGia']*$chi_tiet_hoa_don['soLuong'], 0, ',', '.')?> vnđ</td>
+                            <?php $tongCong = $tongCong + $chi_tiet_hoa_don['donGia']*$chi_tiet_hoa_don['soLuong']; ?>
                         </tr>
-                        <tr>
-                            <td>Undefined Tool IRadix DPS3000SY 2700 watts × 1</td>
-                            <td>$849.00</td>
-                        </tr>
-                        <tr>
-                            <td>Brandix Router Power Tool 2017ERXPK × 3</td>
-                            <td>$3,630.00</td>
-                        </tr>
+                        <?php }?>
                     </tbody>
                     <tbody class="card-table__body card-table__body--merge-rows">
                         <tr>
-                            <th>Tổng phụ</th>
-                            <td>$5,877.00</td>
+                            <th>Tổng cộng</th>
+                            <td><?=number_format($tongCong, 0, ',', '.')?> vnđ</td>
                         </tr>
                         <tr>
-                            <th>Tín dụng lưu trữ</th>
-                            <td>$-20.00</td>
+                            <th>Giảm giá</th>
+                            <td><?=number_format($giamGia, 0, ',', '.')?> vnđ</td>
                         </tr>
                         <tr>
-                            <th>Đang giao</th>
-                            <td>$25.00</td>
+                            <th></th>
+                            <td></td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>Tổng cộng</th>
-                            <td>$5,882.00</td>
+                            <th>Thành tiền</th>
+                            <td><?=number_format($tongCong-$giamGia, 0, ',', '.')?> vnđ</td>
                         </tr>
                     </tfoot>
                 </table>
@@ -59,40 +61,20 @@
         </div>
     </div>
     <div class="row mt-3 no-gutters mx-n2">
-        <div class="col-sm-6 col-12 px-2">
+        <div class="col-sm-12 col-12 px-2">
             <div class="card address-card address-card--featured">
                 <div class="address-card__body">
                     <div class="address-card__badge address-card__badge--muted">Địa chỉ giao hàng
                     </div>
-                    <div class="address-card__name">Helena Garcia</div>
-                    <div class="address-card__row">Random Federation<br>115302, Moscow<br>ul.
-                        Varshavskaya, 15-2-178</div>
+                    <div class="address-card__name"><?=$loginUser['ten'];?></div>
+                    <div class="address-card__row"><?=$hoadon['diaChi'];?></div>
                     <div class="address-card__row">
                         <div class="address-card__row-title">Số điện thoại</div>
-                        <div class="address-card__row-content">38 972 588-42-36</div>
+                        <div class="address-card__row-content"><?=$loginUser['soDienThoai'];?></div>
                     </div>
                     <div class="address-card__row">
                         <div class="address-card__row-title">Địa chỉ Email</div>
-                        <div class="address-card__row-content">stroyka@example.com</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-12 px-2 mt-sm-0 mt-3">
-            <div class="card address-card address-card--featured">
-                <div class="address-card__body">
-                    <div class="address-card__badge address-card__badge--muted">Địa chỉ thanh toán
-                    </div>
-                    <div class="address-card__name">Helena Garcia</div>
-                    <div class="address-card__row">Random Federation<br>115302, Moscow<br>ul.
-                        Varshavskaya, 15-2-178</div>
-                    <div class="address-card__row">
-                        <div class="address-card__row-title">Số điện thoại</div>
-                        <div class="address-card__row-content">38 972 588-42-36</div>
-                    </div>
-                    <div class="address-card__row">
-                        <div class="address-card__row-title">Địa chỉ Email</div>
-                        <div class="address-card__row-content">stroyka@example.com</div>
+                        <div class="address-card__row-content"><?=$loginUser['email'];?></div>
                     </div>
                 </div>
             </div>
