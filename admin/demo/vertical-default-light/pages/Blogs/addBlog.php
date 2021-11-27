@@ -28,7 +28,7 @@ if (isset($_POST['btn'])) {
             </div>
             <div class="form-group">
                 <label>Nội dung</label>
-                <textarea id="" cols="150" rows="10" name="noiDung"></textarea>
+                <textarea id="" cols="150" rows="30" name="noiDung"></textarea>
             </div>
             <div class="form-group">
                 <label>Hình ảnh</label>
@@ -41,7 +41,7 @@ if (isset($_POST['btn'])) {
                 <input type="radio" id="anHien2" name="anHien" value="1">
                 <label for="anHien2">Ẩn</label>
             </div>
-            <input type="submit" class="btn btn-primary me-2" name="btn" value="Thêm"></input>
+            <input type="submit" class="btn btn-primary me-2" name="btn" value="Thêm tin"></input>
             <button class="btn btn-light">Cancel</button>
         </form>
     </div>
