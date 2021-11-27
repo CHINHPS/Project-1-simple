@@ -52,6 +52,11 @@ function get_name_category($idCategory){
    $sql = "SELECT * FROM loai_san_pham Where idLoai=?";
    return pdo_query_one($sql,$idCategory);
 }
+//Lấy sản phẩm bằng idLoai
+function getProductByIDLoai($idLoai){
+   $sql = "SELECT * FROM san_pham Where idLoai=? LIMIT 0,5";
+   return pdo_query($sql,$idLoai);
+}
 //Lấy 1 hóa đơn
 function getInvoice($idHoaDon){
    $sql = "SELECT * FROM hoa_don Where idHoaDon=?";

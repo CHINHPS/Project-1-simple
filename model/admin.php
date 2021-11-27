@@ -127,10 +127,10 @@ function getBlog($idTin)
    return pdo_query_one($sql, $idTin);
 }
 //Thêm tin
-function addBlog($tenSP, $donGia, $giamGia, $hinhAnh, $luotXem, $thongSo, $moTa, $anHien, $idLoai)
+function addBlog($tieuDe,$tomTat,$noiDung,$hinhAnh,$idUser,$luotXem,$anHien)
 {
-   $sql = "INSERT INTO tin (tieuDe,tomTat,noiDung,hinhAnh,idUser,luotXem,anHien) VALUES (?,?,?,?,?,?,?,?)";
-   return pdo_execute($sql, $tenSP, $donGia, $giamGia, $hinhAnh, $luotXem, $thongSo, $moTa, $anHien, $idLoai);
+   $sql = "INSERT INTO tin (tieuDe,tomTat,noiDung,hinhAnh,idUser,luotXem,anHien) VALUES (?,?,?,?,?,?,?)";
+   return pdo_execute($sql,$tieuDe,$tomTat,$noiDung,$hinhAnh,$idUser,$luotXem,$anHien);
 }
 //Sửa tin
 function updateBlog($tenSP, $donGia, $giamGia, $hinhAnh, $luotXem, $thongSo, $moTa, $anHien, $idLoai, $idTin)
