@@ -46,12 +46,8 @@ switch ($action) {
         if ($page_num<=0) $page_num=1;
         $base_url = Get_current_link('notQuery');
 
-        var_dump($base_url);
 
         $total_rows = get_All_product_by_category_COUNT($id_category);
-        
-
-        
 
         
         # lấy loại sp và danh sách của sp theo loại
