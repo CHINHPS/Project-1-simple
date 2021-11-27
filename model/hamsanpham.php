@@ -37,9 +37,9 @@ function get_All_product_by_category($idCategory, $page_num, $page_size){
 }
 
 function get_All_product_by_category_COUNT($idCategory){
-   $sql = "SELECT count(idSP) FROM san_pham WHERE idLoai=?";
+   $sql = "SELECT count(*) FROM san_pham WHERE idLoai=?";
    $data = pdo_query_one($sql,$idCategory);
-   return $data['count(idSP)'];
+   return $data['count(*)'];
 }
 
 
@@ -72,6 +72,7 @@ function comment($idUser,$anHien,$noiDung,$idSP){
    $sql = "INSERT INTO binh_luan (idUser,anHien,noiDung,idSP) VALUE (?,?,?,?)";
    return pdo_execute($sql,$idUser,$anHien,$noiDung,$idSP);
 }
+
 function taoLinkPhanTrang($base_url, $total_rows, $page_num, $page_size=5) {
    $offset=3;
    if($base_url == Get_current_link('notQuery')) $get_defaut = '?'; else $get_defaut = '&';

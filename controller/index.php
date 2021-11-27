@@ -40,15 +40,15 @@ switch ($action) {
             die('Đường dẫn của bạn sai hoặc doanh mục đã bị xóa khỏi hệ thống!!!');
 
         # phân trang trong loại
-        $page_size = 3; // số sản phẩm hiển thị
+        $page_size = 5; // số sản phẩm hiển thị
         $page_num = 1;
         if (isset($_GET['page_num'])) $page_num = $_GET['page_num']+0;
         if ($page_num<=0) $page_num=1;
         $base_url = Get_current_link('notQuery');
 
-
         $total_rows = get_All_product_by_category_COUNT($id_category);
-
+        
+        echo $total_rows;
         
         # lấy loại sp và danh sách của sp theo loại
         $danhmuc = get_All_category_product();
