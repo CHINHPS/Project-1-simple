@@ -14,6 +14,7 @@ $binhLuan = getCommentByIDSP($detai_pro['idSP']);
     <div class="page-header">
         <div class="page-header__container container">
             <div class="page-header__breadcrumb">
+
             </div>
         </div>
     </div>
@@ -22,6 +23,8 @@ $binhLuan = getCommentByIDSP($detai_pro['idSP']);
             <div class="product product--layout--standard" data-layout="standard">
                 <div class="product__content">
                     <!-- .product__gallery -->
+
+
                     <div class="product__gallery">
                         <div class="product-gallery">
                             <div class="product-gallery__featured">
@@ -33,6 +36,8 @@ $binhLuan = getCommentByIDSP($detai_pro['idSP']);
                                 <div class="owl-carousel owl-loaded owl-drag" id="product-image">
                                     <div class="owl-stage-outer">
                                         <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 2655px;">
+
+
                                             <div class="owl-item active" style="width: 531px;">
                                                 <div class="product-image product-image--location--gallery">
                                                     <a href="<?= $detai_pro['hinhAnh'] ?>" data-width="700" data-height="700" class="product-image__body" target="_blank">
@@ -40,6 +45,8 @@ $binhLuan = getCommentByIDSP($detai_pro['idSP']);
                                                     </a>
                                                 </div>
                                             </div>
+
+
                                         </div>
                                     </div>
                                     <div class="owl-nav disabled">
@@ -53,9 +60,12 @@ $binhLuan = getCommentByIDSP($detai_pro['idSP']);
                             </div>
                         </div>
                     </div>
+
+
                     <!-- .product__gallery / end -->
                     <!-- .product__info -->
                     <div class="product__info">
+
                         <h1 class="product__name"><?php echo $detai_pro['tenSP'] ?></h1>
                         <div class="product__rating">
                             <div class="product__rating-stars">
@@ -71,11 +81,14 @@ $binhLuan = getCommentByIDSP($detai_pro['idSP']);
                         <ul class="product__meta">
                             <li class="product__meta-availability">Thể loại: <span class="text-success"><?= get_name_category($detai_pro['idLoai'])['tenLoai'] ?></span>
                             </li>
+
                         </ul>
                     </div><!-- .product__info / end -->
                     <!-- .product__sidebar -->
                     <div class="product__sidebar">
+
                         <div class="product__prices"><?= number_format($detai_pro['donGia']) ?>đ</div>
+
                         <form class="product__options" action="?act=my_cart" method="POST">
                             <input type="hidden" name="id_prod" value="<?php echo $detai_pro['idSP'] ?>">
                             <input type="hidden" name="gia" value="<?php echo $detai_pro['donGia'] ?>">
@@ -96,6 +109,7 @@ $binhLuan = getCommentByIDSP($detai_pro['idSP']);
                         </form><!-- .product__options / end -->
                     </div><!-- .product__end -->
                     <div class="product__footer">
+
                         <div class="product__share-links share-links">
                             <ul class="share-links__list">
                                 <div class="fb-like" data-href="<?= $current_link ?>" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
@@ -243,47 +257,40 @@ $binhLuan = getCommentByIDSP($detai_pro['idSP']);
             <div class="block-products-carousel__slider">
                 <div class="block-products-carousel__preloader"></div>
                 <div class="owl-carousel">
-                    <div class="block-products-carousel__slider">
-                        <div class="block-products-carousel__preloader"></div>
-                        <div class="owl-carousel">
-                            <?php $sanPhamLienQuan = getProductByIDLoai($detai_pro['idLoai']) ?>
-                            <?php foreach ($sanPhamLienQuan as $san_Pham_Lien_Quan) { ?>
-                                <div class="block-products-carousel__column" width="20%">
-                                    <div class="block-products-carousel__cell">
-                                        <div class="product-card product-card--hidden-actions">
-                                            <div class="product-card__badges-list">
-                                                <div class="product-card__badge product-card__badge--hot">Hot</div>
-                                            </div>
-                                            <div class="product-card__image product-image">
-                                                <a href="view-product/<?= seo1($san_Pham_Lien_Quan['tenSP']) ?>/<?= $san_Pham_Lien_Quan['idSP'] ?>" class="product-image__body"><img class="product-image__img" src="<?= $san_Pham_Lien_Quan['hinhAnh'] ?>" alt="" width="100%">
-                                                </a>
-                                            </div>
-                                            <div class="product-card__info">
-                                                <div class="product-card__name"><a href="view-product/<?= seo1($san_Pham_Lien_Quan['tenSP']) ?>/<?= $san_Pham_Lien_Quan['idSP'] ?>"><?= $san_Pham_Lien_Quan['tenSP'] ?></a>
-                                                </div>
-                                                <div class="product-card__rating">
-                                                    <div class="product-card__rating-stars">
-                                                        <div class="rating">
-                                                            <div class="rating__body">
-                                                                <i class="far fa-eye" style="color:#F9CC76;"></i>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-card__rating-legend"><?= number_format($san_Pham_Lien_Quan['luotXem']) ?> Lượt xem</div>
-                                                </div>
-                                            </div>
-                                            <div class="product-card__actions">
-                                                <div class="product-card__prices"><?= number_format($san_Pham_Lien_Quan['donGia']) ?>đ</div>
-                                                <div class="product-card__buttons">
-                                                    <button class="btn btn-primary product-card__addtocart" type="button">Thêm giỏ hàng</button>
-                                                </div>
-                                            </div>
-                                        </div>
+                    <?php $sanPhamLienQuan = getProductByIDLoai($detai_pro['idLoai']); ?>
+                    <?php foreach ($sanPhamLienQuan as $san_Pham_Lien_Quan){ ?>
+                    <div class="block-products-carousel__column">
+                        <div class="block-products-carousel__cell">
+                            <div class="product-card product-card--hidden-actions">
+                                <div class="product-card__image product-image"><a href="view-product/<?=seo1($san_Pham_Lien_Quan['tenSP'])?>/<?=$san_Pham_Lien_Quan['idSP']?>" class="product-image__body"><img class="product-image__img" src="<?=$san_Pham_Lien_Quan['hinhAnh']?>" alt=""></a></div>
+                                <div class="product-card__info">
+                                    <div class="product-card__name"><a href="view-product/<?=seo1($san_Pham_Lien_Quan['tenSP'])?>/<?=$san_Pham_Lien_Quan['idSP']?>"><?=$san_Pham_Lien_Quan['tenSP']?></a></div>
+                                    <div class="product-card__rating">
+                                        <div class="product-card__rating-stars"></div>
+                                        <div class="product-card__rating-legend"><?=number_format($san_Pham_Lien_Quan['luotXem'])?> Lượt xem</div>
+                                    </div>
+                                    <ul class="product-card__features-list">
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                        <li></li>
+                                    </ul>
+                                </div>
+                                <div class="product-card__actions">
+                                    <div class="product-card__prices"><?=number_format($san_Pham_Lien_Quan['donGia'])?>đ</div>
+                                    <div class="product-card__buttons"><button class="btn btn-primary product-card__addtocart" type="button">Thêm giỏ hàng</button> <button class="btn btn-secondary product-card__addtocart product-card__addtocart--list" type="button">Add To Cart</button> <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__wishlist" type="button"><svg width="16px" height="16px">
+                                                <use xlink:href="images/sprite.svg#wishlist-16"></use>
+                                            </svg> <span class="fake-svg-icon fake-svg-icon--wishlist-16"></span></button>
+                                        <button class="btn btn-light btn-svg-icon btn-svg-icon--fake-svg product-card__compare" type="button"><svg width="16px" height="16px">
+                                                <use xlink:href="images/sprite.svg#compare-16"></use>
+                                            </svg> <span class="fake-svg-icon fake-svg-icon--compare-16"></span></button>
                                     </div>
                                 </div>
-                            <?php } ?>
+                            </div>
                         </div>
                     </div>
+                    <?php  }?>
                 </div>
             </div>
         </div>

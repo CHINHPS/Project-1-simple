@@ -54,7 +54,7 @@ function get_name_category($idCategory){
 }
 //Lấy sản phẩm bằng idLoai
 function getProductByIDLoai($idLoai){
-   $sql = "SELECT * FROM san_pham Where idLoai=? LIMIT 0,5";
+   $sql = "SELECT * FROM san_pham Where idLoai=? LIMIT 0,7";
    return pdo_query($sql,$idLoai);
 }
 //Lấy 1 hóa đơn

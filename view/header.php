@@ -11,7 +11,7 @@ $tin_nb=get_All_list_news_nb();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="format-detection" content="telephone=no">
-    <title>Stroyka</title>
+    <title>GalaxyPhone</title>
     <link rel="icon" type="image/png" href="libary/images/favicon.png">
     <!-- fonts -->
     <base href="http://localhost/DUAN1_2/github/duan1nhom6/">
