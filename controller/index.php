@@ -40,7 +40,7 @@ switch ($action) {
             die('Đường dẫn của bạn sai hoặc doanh mục đã bị xóa khỏi hệ thống!!!');
 
         # phân trang trong loại
-        $page_size = 5; // số sản phẩm hiển thị
+        $page_size = 6; // số sản phẩm hiển thị
         $page_num = 1;
         if (isset($_GET['page_num'])) $page_num = $_GET['page_num']+0;
         if ($page_num<=0) $page_num=1;
