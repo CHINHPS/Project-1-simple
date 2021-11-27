@@ -1,6 +1,8 @@
 <?php
   session_start();
-  $UserLogin = $_SESSION['login_user'];
+  if (isset($_SESSION['login_user'])){
+    $$UserLogin = $_SESSION['login_user'];
+}
   if ($UserLogin['nhom']!=0 || is_array($UserLogin)==false){
     echo "<script>
     window.location='../../../';

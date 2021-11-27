@@ -1,3 +1,6 @@
+<?php  if (isset($_SESSION['login_user'])){
+        $loginUser = $_SESSION['login_user'];
+    }?>
 <div class="col-12 col-lg-9 mt-4 mt-lg-0">
     <div class="card">
         <div class="card-header">
