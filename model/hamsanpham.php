@@ -74,16 +74,16 @@ function comment($idUser,$anHien,$noiDung,$idSP){
 }
 function taoLinkPhanTrang($base_url, $total_rows, $page_num, $page_size=5) {
    $offset=3;
-   if($base_url == Get_current_link()) $get_defaut = '?'; else $get_defaut = '&';
+   if($base_url == Get_current_link('notQuery')) $get_defaut = '?'; else $get_defaut = '&';
    if ($page_num<=0) return "";
    $total_pages= ceil($total_rows/$page_size); //tính tổng số trang
    if ($total_pages<=1) return "";
 
-   $links="<ul class='pagination'>";
-   if ($page_num>1) {//chỉ hiện 2 link đầu, trước khi user từ trang 2 trở đi
-      $first ="<li><a href='{$base_url}'><i class='fa fa-angle-double-left'></i></a></li>";    
+   $links="<ul class='pagination justify-content-center'>";
+   if ($page_num> 1) {//chỉ hiện 2 link đầu, trước khi user từ trang 2 trở đi
+      $first ="<li class='page-item'><a class='page-link' href='{$base_url}'><i class='fa fa-angle-double-left'></i></a></li>";    
       $page_prev= $page_num-1;
-      $prev ="<li><a href='{$base_url}{$get_defaut}page_num={$page_prev}'><i class='fa fa-angle-left'></i></a></li>";
+      $prev ="<li class='page-item'><a class='page-link' href='{$base_url}{$get_defaut}page_num={$page_prev}'><i class='fa fa-angle-left'></i></a></li>";
       $links .= $first. $prev;
    }
 
@@ -93,16 +93,16 @@ function taoLinkPhanTrang($base_url, $total_rows, $page_num, $page_size=5) {
    if($to > $total_pages) $to = $total_pages;
 
    for ($i=$form; $i < $to; $i++) { 
-       if($i==$page_num) $str = "<li class='page-item active'><a> $i</a></li>";
-       else $str = "<li><a href='{$base_url}{$get_defaut}page_num={$i}'> $i</a></li>";
+       if($i==$page_num) $str = "<li class='page-item active'><a class='page-link'> $i</a></li>";
+       else $str = "<li class='page-item'><a class='page-link' href='{$base_url}{$get_defaut}page_num={$i}'> $i</a></li>";
        $links .=$str;
    }
 
    //aaa
    if ($page_num<$total_pages){ //chỉ hiện link cuối, kế khi user kô ở trang cuối 
       $page_next= $page_num + 1;
-      $next ="<li><a href='{$base_url}{$get_defaut}page_num={$page_next}'><i class='fa fa-angle-right'></i></a></li>";        
-      $last ="<li><a href='{$base_url}{$get_defaut}page_num={$total_pages}'><i class='fa fa-angle-double-right'></i></a></li>";
+      $next ="<li class='page-item'><a class='page-link' href='{$base_url}{$get_defaut}page_num={$page_next}'><i class='fa fa-angle-right'></i></a></li>";        
+      $last ="<li class='page-item'><a class='page-link' href='{$base_url}{$get_defaut}page_num={$total_pages}'><i class='fa fa-angle-double-right'></i></a></li>";
       $links .=$next.$last;
    }
    $links .="</ul>";

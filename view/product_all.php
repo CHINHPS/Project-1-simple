@@ -150,11 +150,9 @@
                             </div>
                         </div>
                         <div class="products-view__pagination">
-                            <ul class="pagination justify-content-center">
                             <?php   
                                 echo taoLinkPhanTrang($base_url, $total_rows, $page_num, $page_size);
                             ?>
-                            </ul>
                         </div>
                     </div>
                 </div>

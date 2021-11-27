@@ -1,7 +1,26 @@
 <?php
 
-function Get_current_link(){
-    return (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+function Get_current_link($type = 'default'){
+
+    if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
+         $url = "https://";   
+    else  
+         $url = "http://";   
+
+    // Append the host(domain name, ip) to the URL.   
+    $url.= $_SERVER['HTTP_HOST'];   
+    
+    // Append the requested resource location to the URL   
+
+    if($type == 'default')
+    
+        $url.= $_SERVER['REQUEST_URI'];  
+    
+    else
+
+        $url.= strtok($_SERVER["REQUEST_URI"], '?');
+      
+    return $url;
 }
 
 function seo1($text)
