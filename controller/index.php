@@ -44,13 +44,14 @@ switch ($action) {
         $page_num = 1;
         if (isset($_GET['page_num'])) $page_num = $_GET['page_num']+0;
         if ($page_num<=0) $page_num=1;
+        $base_url = Get_current_link('notQuery');
 
-        var_dump($page_num);
+        var_dump($base_url);
 
         $total_rows = get_All_product_by_category_COUNT($id_category);
         
 
-        $base_url = Get_current_link();
+        
 
         
         # lấy loại sp và danh sách của sp theo loại
