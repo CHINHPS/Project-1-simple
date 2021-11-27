@@ -1,4 +1,7 @@
 <?php
+    if (isset($_SESSION['login_user'])){
+        $UserLogin = $_SESSION['login_user'];
+    }
     $idUser = $_GET['idUser'];
     settype($idUser,"int");
     $user = getUser($idUser);
@@ -14,6 +17,9 @@
         $matKhau = trim(strip_tags($matKhau));
         $matKhau=md5($matKhau);
         $kq = updateUser($tenDangNhap,$matKhau,$ten,$email,$soDienThoai,$nhom,$idUser);
+        if ($idUser==$UserLogin){
+            $_SESSION['login_user'] = getUserByIDUser($idUser);
+        }
         if ($kq!=true){
             echo "<script>
             window.location='?page=userList';

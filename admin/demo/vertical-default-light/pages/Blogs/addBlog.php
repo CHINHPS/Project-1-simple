@@ -1,11 +1,15 @@
 <?php
+$UserLogin = $_SESSION['login_user'];
 if (isset($_POST['btn'])) {
-    $tenLoai = $_POST['tenLoai'];
+    $tieuDe = $_POST['tieuDe'];
+    $tomTat = $_POST['tomTat'];
+    $noiDung = $_POST['noiDung'];
+    $hinhAnh = $_POST['hinhAnh'];
     $anHien = $_POST['anHien'];
-    $thuTu = $_POST['thuTu'];
-    $tenLoai = trim(strip_tags($tenLoai));
-    $kq = addProductType($tenLoai, $anHien, $thuTu);
-    header("Location: ?page=productTypeList");
+    $tieuDe = trim(strip_tags($tieuDe));
+    $tomTat = trim(strip_tags($tomTat));
+    $hinhAnh = trim(strip_tags($hinhAnh));
+    $kq = addBlog($tieuDe,$tomTat,$noiDung,$hinhAnh,$UserLogin['idUser'],0,$anHien);
 }
 ?>
 <div class="card">
@@ -15,8 +19,20 @@ if (isset($_POST['btn'])) {
         </p>
         <form class="forms-sample" method="post">
             <div class="form-group">
-                <label>Tên Loại</label>
-                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Tên loại" name="tenLoai" required>
+                <label>Tiêu đề</label>
+                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Tiêu Đề" name="tieuDe" required>
+            </div>
+            <div class="form-group">
+                <label>Tóm tắt</label>
+                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Tóm tắt" name="tomTat" required>
+            </div>
+            <div class="form-group">
+                <label>Nội dung</label>
+                <textarea id="" cols="150" rows="10" name="noiDung"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Hình ảnh</label>
+                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Hình ảnh" name="hinhAnh" required>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Ẩn Hiện</label><br>
@@ -24,10 +40,6 @@ if (isset($_POST['btn'])) {
                 <label for="anHien1">Hiện</label>
                 <input type="radio" id="anHien2" name="anHien" value="1">
                 <label for="anHien2">Ẩn</label>
-            </div>
-            <div class="form-group">
-                <label>Thứ Tự</label>
-                <input type="number" min="0" class="form-control" id="exampleInputPassword1" placeholder="Thứ tự" name="thuTu" required>
             </div>
             <input type="submit" class="btn btn-primary me-2" name="btn" value="Thêm"></input>
             <button class="btn btn-light">Cancel</button>
