@@ -11,7 +11,7 @@ if (isset($_POST['btn'])) {
     $tieuDe = trim(strip_tags($tieuDe));
     $tomTat = trim(strip_tags($tomTat));
     $hinhAnh = trim(strip_tags($hinhAnh));
-    $kq = addBlog($tieuDe,$tomTat,$noiDung,$hinhAnh,$UserLogin['idUser'],0,$anHien);
+    $kq = addBlog($tieuDe,$tomTat,$noiDung,$hinhAnh,$blog['idUser'],$blog['luotXem'],$anHien);
 }
 ?>
 <div class="card">
