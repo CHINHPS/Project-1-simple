@@ -13,3 +13,5 @@ RewriteRule ^product-type/([a-zA-Z0-9_-]+)/([0-9]+)$ controller/?act=product_typ
 RewriteRule ^login-account$ controller/?act=login_account
 
 RewriteRule ^product/view-all$ controller/?act=all_prod
+
+RewriteRule ^contact$ controller/?act=contact

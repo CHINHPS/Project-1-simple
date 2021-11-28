@@ -37,7 +37,7 @@ switch($action_user){
         include_once '../view/header.php';
         break;
     case 'logOut':
-        session_destroy();
+        unset($_SESSION['login_user']);
         echo "<script>
         window.location='../';
         </script>";

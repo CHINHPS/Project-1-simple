@@ -1,7 +1,6 @@
 <?php
 require_once "../controller/sendMail.php";
-$btn = $_POST['btn'];
-if (isset($btn)) {
+if (isset($_POST['btn'])) {
     $hoVaTen = $_POST['hoVaTen'];
     $email = $_POST['email'];
     $tieuDe = $_POST['tieuDe'];
@@ -13,25 +12,23 @@ if (isset($btn)) {
 ?>
 <div class="site__body">
     <div class="block-map block">
-        <div class="block-map__body"><iframe src="https://maps.google.com/maps?q=Holbrook-Palmer%20Park&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div>
+        <div class="block-map__body"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1647.5102911408544!2d106.62933437817026!3d10.852428524059736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x11690ada8c36f9bc!2zVHLGsOG7nW5nIENhbyDEkeG6s25nIFRo4buxYyBow6BuaCBGUFQgUG9seXRlY2huaWMgVFAuSENNIChDUzMp!5e0!3m2!1svi!2s!4v1638108202580!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
     </div>
     <div class="page-header">
         <div class="page-header__container container">
             <div class="page-header__breadcrumb">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a> <svg class="breadcrumb-arrow" width="6px" height="9px">
+                        <li class="breadcrumb-item"><a href="index.php">Trang chủ</a> <svg class="breadcrumb-arrow" width="6px" height="9px">
                                 <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
                             </svg></li>
-                        <li class="breadcrumb-item"><a href="#">Breadcrumb</a> <svg class="breadcrumb-arrow" width="6px" height="9px">
-                                <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
                             </svg></li>
-                        <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+                        <li class="breadcrumb-item active" aria-current="page">Liên hệ</li>
                     </ol>
                 </nav>
             </div>
             <div class="page-header__title">
-                <h1>Contact Us</h1>
+                <h1>LIÊN HỆ</h1>
             </div>
         </div>
     </div>
@@ -42,11 +39,11 @@ if (isset($btn)) {
                     <div class="contact-us__container">
                         <div class="row">
                             <div class="col-12 col-lg-6 pb-4 pb-lg-0">
-                                <h4 class="contact-us__header card-title">Our Address</h4>
+                                <h4 class="contact-us__header card-title">Địa chỉ</h4>
                                 <div class="contact-us__address">
-                                    <p>715 Fake Ave, Apt. 34, New York, NY 10021 USA<br>Email: stroyka@example.com<br>Phone Number: +1 754 000-00-00</p>
-                                    <p><strong>Opening Hours</strong><br>Monday to Friday: 8am-8pm<br>Saturday: 8am-6pm<br>Sunday: 10am-4pm</p>
-                                    <p><strong>Comment</strong><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur suscipit suscipit mi, non tempor nulla finibus eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                    <p>Cao đẳng FPT Polytechnic<br>Số điện thoại: 0366 390 249</p>
+                                    <p><strong>Thời gian mở cửa</strong><br>Từ thứ 2 đến Chủ nhật: 8AM-8PM
+                                    <p><strong>Phương châm</strong><br>Vừa lòng khách đến, khách đi thì kệ khách</p>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-6">

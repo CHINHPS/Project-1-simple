@@ -206,7 +206,7 @@ $tin_nb=get_All_list_news_nb();
                         
                                         </li>
                                         <li class="nav-links__item nav-links__item--has-submenu">
-                                            <a class="nav-links__item-link" href="">
+                                            <a class="nav-links__item-link" href="contact">
                                                 <div class="nav-links__item-body">Liên hệ
                                                     
                                                 </div>

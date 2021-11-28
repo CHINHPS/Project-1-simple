@@ -163,5 +163,9 @@ switch ($action) {
         } else echo "Đường dẫn sai nè!";
         
         break;
+    case 'contact':
+        $main = "../view/contact-us.php";
+        include_once '../view/header.php';
+        break;
 }
 
