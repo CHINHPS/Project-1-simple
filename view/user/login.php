@@ -22,7 +22,7 @@
                                 <input type="hidden" name="type_" value="login_account">
                                 <div class="form-group"><label>Địa chỉ Email</label><br><span style="color: red; font-weight:bold;"><?php if (isset($error['not_email']) && ($error['not_email'] != "")) echo $error['not_email'];
                                                                                                                                     if (isset($error['not_active'])) echo $error['not_active']; ?></span> <input name="email" type="email" class="form-control" placeholder="Nhập Email"></div>
-                                <div class="form-group"><label>Mật khẩu</label> <br><span style="color: red; font-weight:bold;"><?php if (isset($error['not_pass']) && ($error['not_pass'] != "")) echo $error['not_pass']; ?></span> <input name="pass" type="password" class="form-control" placeholder="Mật khẩu"> <small class="form-text text-muted"><a href="#">Quên mật khẩu</a></small>
+                                <div class="form-group"><label>Mật khẩu</label> <br><span style="color: red; font-weight:bold;"><?php if (isset($error['not_pass']) && ($error['not_pass'] != "")) echo $error['not_pass']; ?></span> <input name="pass" type="password" class="form-control" placeholder="Mật khẩu"> <small class="form-text text-muted"><a href="forget-pass">Quên mật khẩu</a></small>
                                 </div>
                                 <div class="form-group">
                                     <div class="form-check"><span class="form-check-input input-check"><span class="input-check__body"><input class="input-check__input" type="checkbox" id="login-remember"> <svg class="input-check__icon" width="9px" height="7px">

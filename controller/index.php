@@ -7,6 +7,7 @@ include_once "../model/hamsanpham.php";
 include_once "../model/hamnguoidung.php";
 include_once "../model/hamtintuc.php";
 include_once '../model/global.php';
+include_once 'sendMail.php';
 
 if(isset($_GET['act']))
     $action = $_GET['act'];
@@ -165,6 +166,10 @@ switch ($action) {
         break;
     case 'contact':
         $main = "../view/contact-us.php";
+        include_once '../view/header.php';
+        break;
+    case 'forget-pass':
+        $main = "../view/user/forget-password.php";
         include_once '../view/header.php';
         break;
 }

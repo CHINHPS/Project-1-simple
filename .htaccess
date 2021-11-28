@@ -15,3 +15,5 @@ RewriteRule ^login-account$ controller/?act=login_account
 RewriteRule ^product/view-all$ controller/?act=all_prod
 
 RewriteRule ^contact$ controller/?act=contact
+
+RewriteRule ^forget-pass$ controller/?act=forget-pass
