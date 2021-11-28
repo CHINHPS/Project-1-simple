@@ -21,7 +21,7 @@
         } else if ($newPass!=$confirmPass){
             $error3 = "Nhập lại mật khẩu không đúng";
         }
-        if (($error1==null)&&($error2==null)&&($error2==null)){
+        if (isset($error1)==false&&isset($error2)==false&&isset($error3)==false){
             updatePasswordUser(md5($newPass),$loginUser['email']);
             $_SESSION['login_user'] = check_login($loginUser['email'],md5($newPass));
             echo "<script>alert('Bạn đã cập nhật mật khẩu thành công')</script>";
@@ -38,11 +38,11 @@
             <div class="card-body">
                 <div class="row no-gutters">
                     <div class="col-12 col-lg-7 col-xl-6">
-                        <div class="form-group"><label for="password-current">Mật khẩu hiện tại</label><?php if (isset($error1)) echo "</br>" ?> <span style="color: red; font-weight:bold;"><?=$error1?></span><input name="password-current" type="password" class="form-control" id="password-current" placeholder="Mật khẩu hiện tại" ></div>
-                        <div class="form-group"><label for="password-new">Mật khẩu mới</label><?php if (isset($error2)) echo "</br>" ?> <span style="color: red; font-weight:bold;"><?=$error2?></span>
+                        <div class="form-group"><label for="password-current">Mật khẩu hiện tại</label><?php if (isset($error1)) echo "</br>" ?> <span style="color: red; font-weight:bold;"><?php if (isset($error1)) echo $error1;?></span><input name="password-current" type="password" class="form-control" id="password-current" placeholder="Mật khẩu hiện tại" ></div>
+                        <div class="form-group"><label for="password-new">Mật khẩu mới</label><?php if (isset($error2)) echo "</br>" ?> <span style="color: red; font-weight:bold;"><?php if (isset($error2)) echo $error2;?></span>
                             <input type="password" name="password-new" class="form-control" id="password-new" placeholder="Mật khẩu mới" minlength="8" oninvalid="this.setCustomValidity('Mật khẩu phải có ít nhất 8 ký tự')" oninput="this.setCustomValidity('')">
                         </div>
-                        <div class="form-group"><label for="password-confirm">Nhập lại mật khẩu</label><?php if (isset($error3)) echo "</br>" ?> <span style="color: red; font-weight:bold;"><?=$error3?></span> <input name="password-confirm" type="password" class="form-control" id="password-confirm" placeholder="Nhập lại mật khẩu" minlength="8" oninvalid="this.setCustomValidity('Mật khẩu phải có ít nhất 8 ký tự')" oninput="this.setCustomValidity('')"></div>
+                        <div class="form-group"><label for="password-confirm">Nhập lại mật khẩu</label><?php if (isset($error3)) echo "</br>" ?> <span style="color: red; font-weight:bold;"><?php if (isset($error3)) echo $error3;?></span> <input name="password-confirm" type="password" class="form-control" id="password-confirm" placeholder="Nhập lại mật khẩu" minlength="8" oninvalid="this.setCustomValidity('Mật khẩu phải có ít nhất 8 ký tự')" oninput="this.setCustomValidity('')"></div>
                         <div class="form-group mt-5 mb-0"><button name="btn" class="btn btn-primary">Đổi</button></div>
                     </div>
                 </div>

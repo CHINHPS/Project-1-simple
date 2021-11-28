@@ -14,7 +14,7 @@ $tin_nb=get_All_list_news_nb();
     <title>GalaxyPhone</title>
     <link rel="icon" type="image/png" href="libary/images/favicon.png">
     <!-- fonts -->
-    <base href="http://localhost/DUAN1_2/github/duan1nhom6/">
+    <base href="http://localhost/duan1/duan1nhom6/">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i">
     <!-- css -->
