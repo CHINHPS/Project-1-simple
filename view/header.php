@@ -36,8 +36,6 @@ $tin_nb=get_All_list_news_nb();
 <body>
     <div class="site">
         <header class="site__header d-lg-none">
-
-
             <div class="mobile-header mobile-header--sticky" data-sticky-mode="pullToShow">
                 <div class="mobile-header__panel">
                     <div class="container">
@@ -90,10 +88,6 @@ $tin_nb=get_All_list_news_nb();
                 </div>
             </div>
         </header>
-
-
-
-        
         <header class="site__header d-lg-block d-none">
             <div class="site-header">
             
@@ -138,39 +132,25 @@ $tin_nb=get_All_list_news_nb();
                                 <div class="nav-panel__departments">
                                     <!-- .departments -->
                                     <div class="departments" data-departments-fixed-by=".block-slideshow">
-
-
-
                                       <!-- Phần menu dọc của trang chủ -->                                   
                                         <div class="departments__body">                                      
                                             <div class="departments__links-wrapper">
                                                 <div class="departments__submenus-container"></div>
                                                 <ul class="departments__links">
-                                                
                                                     <?php foreach(get_All_category_product() as $category_product){ ?>
-
+                                                        <?php if(getProductByIDLoai($category_product['idLoai'])!=null) echo '
                                                     <li class="departments__item">
                                                         <a  class="departments__item-link" 
-                                                            href="product-type/<?=seo1($category_product['tenLoai'])?>/<?=$category_product['idLoai']?>">
+                                                            href="product-type/'.seo1($category_product["tenLoai"]).'/'.$category_product["idLoai"].'">
                                                             <i class="fas fa-mobile-alt" style="margin-right: 5px"></i>
-                                                             <?=$category_product['tenLoai']?>
+                                                             '.$category_product["tenLoai"].' 
                                                         </a>
                                                     </li>
-                                                    
+                                                    '?>
                                                     <?php } ?>
-
                                                 </ul>
-
-
-
                                             </div>
                                         </div>
-
-
-
-
-
-
                                         <button class="departments__button">
                                             <svg class="departments__button-icon" width="18px" height="14px">
                                                 <use xlink:href="libary/images/sprite.svg#menu-18x14"></use>
@@ -193,36 +173,6 @@ $tin_nb=get_All_list_news_nb();
                                             </a>
 
                                         </li>
-                                      
-                                        <li class="nav-links__item nav-links__item--has-submenu">
-                                            <a class="nav-links__item-link" href="?act=all_prod">
-                                                <div class="nav-links__item-body">Shop
-                                                    <svg class="nav-links__item-arrow" width="9px" height="6px">
-                                                        <use xlink:href="libary/images/sprite.svg#arrow-rounded-down-9x6"></use>
-                                                    </svg>
-                                                </div>
-                                            </a>
-                                            <div class="nav-links__submenu nav-links__submenu--type--menu">
-                                                <!-- .menu -->
-                                                <div class="menu menu--layout--classic">
-                                                    <div class="menu__submenus-container"></div>
-                                                    <ul class="menu__list">
-
-                                                        <li class="menu__item">
-                                                            <!-- This is a synthetic element that allows to adjust the vertical offset of the submenu using CSS. -->
-                                                            <div class="menu__item-submenu-offset"></div><a class="menu__item-link" href="?act=all_prod ">Sản phẩm</a>
-
-                                                        </li>
-                                                        <li class="menu__item">
-                                                            <!-- This is a synthetic element that allows to adjust the vertical offset of the submenu using CSS. -->
-                                                            <div class="menu__item-submenu-offset"></div><a class="menu__item-link" href="?act=my_cart">Giỏ hàng</a>
-                                                        </li>
-
-                                                    </ul>
-                                                </div>
-                                                <!-- .menu / end -->
-                                            </div>
-                                        </li>
 
 
                                         <li class="nav-links__item nav-links__item--has-submenu">
@@ -232,7 +182,6 @@ $tin_nb=get_All_list_news_nb();
                                             <a class="nav-links__item-link" href="login-account">
                                                 <div class="nav-links__item-body">Tài khoản
                                                     <svg class="nav-links__item-arrow" width="9px" height="6px">
-                                                        <use xlink:href="libary/images/sprite.svg#arrow-rounded-down-9x6"></use>
                                                     </svg>
                                                 </div>
                                             </a>
@@ -242,7 +191,6 @@ $tin_nb=get_All_list_news_nb();
                                             <a class="nav-links__item-link" href="user/home">
                                                 <div class="nav-links__item-body">Tài khoản
                                                     <svg class="nav-links__item-arrow" width="9px" height="6px">
-                                                        <use xlink:href="libary/images/sprite.svg#arrow-rounded-down-9x6"></use>
                                                     </svg>
                                                 </div>
                                             </a>
@@ -252,6 +200,14 @@ $tin_nb=get_All_list_news_nb();
                                         <li class="nav-links__item nav-links__item--has-submenu">
                                             <a class="nav-links__item-link" href="?act=list_news">
                                                 <div class="nav-links__item-body">Tin tức
+                                                    
+                                                </div>
+                                            </a>
+                        
+                                        </li>
+                                        <li class="nav-links__item nav-links__item--has-submenu">
+                                            <a class="nav-links__item-link" href="">
+                                                <div class="nav-links__item-body">Liên hệ
                                                     
                                                 </div>
                                             </a>
