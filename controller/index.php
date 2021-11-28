@@ -124,7 +124,7 @@ switch ($action) {
     case 'list_news':
         $new = get_All_list_news();
 
-        $main = '../view/blog.php';
+        $main = '../view/blog-list.php';
         include_once '../view/header.php';
         break;
 
@@ -133,7 +133,7 @@ switch ($action) {
             $id_post = $_GET['id_source'];
             $detail_news = get_Detail_new($id_post);
         }
-
+        set_view_blog($id_post);
         $main = '../view/view_blog.php';
         include_once '../view/header.php';
         break;

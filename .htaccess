@@ -17,3 +17,5 @@ RewriteRule ^product/view-all$ controller/?act=all_prod
 RewriteRule ^contact$ controller/?act=contact
 
 RewriteRule ^forget-pass$ controller/?act=forget-pass
+
+RewriteRule ^list_news$ controller/?act=list_news

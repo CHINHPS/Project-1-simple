@@ -16,7 +16,10 @@ function get_Detail_new($id_post){
     return pdo_query_one($sql);
 }
 
-
+function set_view_blog($idTin){
+    $sql = "UPDATE tin SET luotXem = luotXem + 1 WHERE idTin=?";
+    return pdo_execute($sql, $idTin);
+ }
 
 
 

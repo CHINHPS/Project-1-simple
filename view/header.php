@@ -121,7 +121,7 @@ $tin_nb=get_All_list_news_nb();
                     </div>
                     <div class="site-header__phone">
                         <div class="site-header__phone-title">Dịch vụ khách hàng</div>
-                        <div class="site-header__phone-number">07.8345.9999</div>
+                        <div class="site-header__phone-number">0366 390 249</div>
                     </div>
                 </div>
                 <div class="site-header__nav-panel">
@@ -198,7 +198,7 @@ $tin_nb=get_All_list_news_nb();
                                         <?php } ?>
                                         </li>
                                         <li class="nav-links__item nav-links__item--has-submenu">
-                                            <a class="nav-links__item-link" href="?act=list_news">
+                                            <a class="nav-links__item-link" href="list_news">
                                                 <div class="nav-links__item-body">Tin tức
                                                     
                                                 </div>

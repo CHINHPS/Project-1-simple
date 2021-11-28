@@ -23,11 +23,11 @@
                                 <?php foreach($new as $news){ ?>
                                 <div class="posts-list__item">
                                     <div class="post-card post-card--layout--grid post-card--size--lg">
-                                        <div class="post-card__image"><a href="#"><img src="<?php echo $news['hinhAnh'] ?>" alt=""></a></div>
-                                        <div class="post-card__info">
-                                            <div class="post-card__category"><a href="#">Ưu đãi Đặc biệt</a></div>
-                                            <div class="post-card__name"><a href="?act=detail_news&id_source=<?php echo $news['idTin'] ?>"><?php echo $news['tieuDe'] ?></a></div>
-                                            <div class="post-card__date"><?php echo $news['ngayDang'] ?></div>
+                                        <div class="post-card__image"><a href="view-news/<?=seo1($news['tieuDe'])?>/<?=$news['idTin'] ?>"><img src="<?php echo $news['hinhAnh'] ?>" alt=""></a></div>
+                                      
+                                            <div class="post-card__category">Số lượt xem: <?php echo $news['luotXem'] ?></div>
+                                            <div class="post-card__name"><a href="view-news/<?=seo1($news['tieuDe'])?>/<?=$news['idTin'] ?>"><?php echo $news['tieuDe'] ?></a></div>
+                                            <div class="post-card__date">Ngày đăng: <?php echo date("d/m/Y h:i:s", strtotime($news['ngayDang'])) ?></div>
                                             <div class="post-card__content"> <?php echo $news['tomTat'] ?></div>
                                             <div class="post-card__read-more"><a href="#" class="btn btn-secondary btn-sm">Đọc thêm</a></div>
                                         </div>
@@ -81,30 +81,7 @@
                             </div><!-- social-links / end -->
                         </div>
                     </div>
-                    <div class="block-sidebar__item">
-                        <div class="widget-categories widget-categories--location--blog widget">
-                            <h4 class="widget__title">Thể loại tin</h4>
-                            <ul class="widget-categories__list" data-collapse data-collapse-opened-class="widget-categories__item--open">
-                                <li class="widget-categories__item" data-collapse-item>
-                                    <div class="widget-categories__row"><a href="#"><svg class="widget-categories__arrow" width="6px" height="9px">
-                                                <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
-                                            </svg> Tin mới</a></div>
-                                </li>
-                                
-                                <li class="widget-categories__item" data-collapse-item>
-                                    <div class="widget-categories__row"><a href="#"><svg class="widget-categories__arrow" width="6px" height="9px">
-                                                <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
-                                            </svg> Tin công nghệ</a></div>
-                                </li>
-                                <li class="widget-categories__item" data-collapse-item>
-                                    <div class="widget-categories__row"><a href="#"><svg class="widget-categories__arrow" width="6px" height="9px">
-                                                <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
-                                            </svg> Tin đời sống</a></div>
-                                </li>
-                                
-                            </ul>
-                        </div>
-                    </div>
+                    
                     <div class="block-sidebar__item">
                         <div class="widget-posts widget">
                             <h4 class="widget__title">Bài viết mới nhất</h4>
