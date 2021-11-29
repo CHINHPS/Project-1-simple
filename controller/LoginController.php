@@ -77,10 +77,22 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 $error['not_like_pass'] = "Nhập lại mật khẩu không đúng !";
             }
         }
+        // chưa nhập họ và tên
+        if (empty($_POST['dk_hvt'])) {
+            $error['not_hvt'] = "Hãy nhập họ và tên !";
+        } else {
+            $hoVaTen = $_POST['dk_hvt'];
+        }
+        // chưa nhập số điện thoại
+        if (empty($_POST['dk_sdt'])) {
+            $error['not_sdt'] = "Hãy nhập số điện thoại !";
+        } else {
+            $soDienThoai = $_POST['dk_sdt'];
+        }
         // nếu mảng error ko tồn tại thì thực thi cau lệnh submit
         if (empty($error)) {
             if (isset($_POST['register']) && ($_POST['register'])) {
-                register_user($email, $pass);
+                register_user($email, $pass, $hoVaTen, $soDienThoai);
                 require_once "sendMail.php";
                 GuiMailXacNhan($email);
                 echo '<script language="javascript">';

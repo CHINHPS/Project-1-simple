@@ -6,8 +6,8 @@ function check_login($email,$pass){
   return pdo_query_one($sql);
 }
 
-function register_user($email , $pass){
-    $sql="INSERT INTO tai_khoan(email,matKhau) VALUES('$email','$pass')";
+function register_user($email , $pass,$hoVaTen,$soDienThoai){
+    $sql="INSERT INTO tai_khoan(email,matKhau,ten,soDienThoai) VALUES('$email','$pass','$hoVaTen','$soDienThoai')";
     return pdo_execute($sql);
 }
 
