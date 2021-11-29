@@ -49,7 +49,6 @@ switch ($action) {
 
         $total_rows = get_All_product_by_category_COUNT($id_category);
         
-        echo $total_rows;
         
         # lấy loại sp và danh sách của sp theo loại
         $danhmuc = get_All_category_product();
@@ -148,8 +147,15 @@ switch ($action) {
         break;
 
     case 'list_news':
-        $new = get_All_list_news();
+        # phân trang trong loại
+        $page_size = 5; // số tin hiển thị
+        $page_num = 1;
+        if (isset($_GET['page_num'])) $page_num = $_GET['page_num']+0;
+        if ($page_num<=0) $page_num=1;
+        $base_url = Get_current_link('notQuery');
 
+        $total_rows = get_All_blog_COUNT();
+        $new = get_All_blog($page_num, $page_size);
         $main = '../view/blog-list.php';
         include_once '../view/header.php';
         break;
@@ -165,7 +171,20 @@ switch ($action) {
         break;
 
     case 'all_prod':
-        $sanpham = get_All_Products();
+        # phân trang trong loại
+        $page_size = 1; // số sản phẩm hiển thị
+        $page_num = 1;
+        if (isset($_GET['page_num'])) $page_num = $_GET['page_num']+0;
+        if ($page_num<=0) $page_num=1;
+        $base_url = Get_current_link('notQuery');
+        if (isset($_GET['search'])) {
+            $keyword = $_GET['search'];
+            $sanpham = getProductByKeyword($keyword);
+        }
+        $total_rows = get_All_product_by_keyword($keyword);
+
+
+        
         $danhmuc = get_All_category_product();
 
         $name_page = 'Tất cả sản phẩm';

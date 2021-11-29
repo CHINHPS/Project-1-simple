@@ -1,7 +1,7 @@
 <div class="dashboard">
     <div class="dashboard__profile card profile-card">
         <div class="card-body profile-card__body">
-            <div class="profile-card__avatar"><img src="images/avatars/avatar-3.jpg" alt="">
+            <div class="profile-card__avatar"><img src="./libary/images/avatars/261398589_1388375961559165_1613070334186862016_n.png" alt="">
             </div>
             <?php if (isset($_SESSION['login_user'])) {
                 $loginUser = $_SESSION['login_user'];

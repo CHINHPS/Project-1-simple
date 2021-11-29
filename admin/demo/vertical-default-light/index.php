@@ -2,12 +2,21 @@
   session_start();
   if (isset($_SESSION['login_user'])){
     $UserLogin = $_SESSION['login_user'];
-}
-  if ($UserLogin['nhom']!=0 || is_array($UserLogin)==false){
+    if ($UserLogin['nhom']!=0){
+      echo "<script>
+      window.location='../../../';
+      </script>";
+    }
+  } else {
     echo "<script>
-    window.location='../../../';
-    </script>";
+      window.location='../../../';
+      </script>";
   }
+  // if ($UserLogin['nhom']!=0 || is_array($UserLogin)==false){
+  //   echo "<script>
+  //   window.location='../../../';
+  //   </script>";
+  // }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -75,7 +84,7 @@
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold">Xin chào <?=$UserLogin['ten'];?></h3>
+                  <h3 class="font-weight-bold">Xin chào <?php if (isset($_SESSION['login_user'])) echo $UserLogin['ten'];?></h3>
                 </div>
                 <div class="col-12 col-xl-4">
                   <div class="justify-content-end d-flex">
@@ -89,74 +98,76 @@
           </div>
           <div class="row">
             <?php
-            switch ($_GET['page']) {
-              case "productTypeList":
-                require_once "../vertical-default-light/pages/productType/productTypeList.php";
-                break;
-              case "addProductType":
-                require_once "../vertical-default-light/pages/productType/addProductType.php";
-                break;
-              case "updateProductType":
-                require_once "../vertical-default-light/pages/productType/updateProductType.php";
-                break;
-              case "deleteProductType":
-                require_once "../vertical-default-light/pages/productType/deleteProductType.php";
-                break;
-              case "userList":
-                require_once "../vertical-default-light/pages/users/userList.php.";
-                break;
-              case "addUser":
-                require_once "../vertical-default-light/pages/users/addUser.php";
-                break;
-              case "updateUser":
-                require_once "../vertical-default-light/pages/users/updateUser.php";
-                break;
-              case "deleteUser":
-                require_once "../vertical-default-light/pages/users/deleteUser.php";
-                break;
-              case "productList":
-                require_once "../vertical-default-light/pages/products/productList.php.";
-                break;
-              case "addProduct":
-                require_once "../vertical-default-light/pages/products/addProduct.php";
-                break;
-              case "updateProduct":
-                require_once "../vertical-default-light/pages/products/updateProduct.php";
-                break;
-              case "deleteProduct":
-                require_once "../vertical-default-light/pages/products/deleteProduct.php";
-                break;
-              case "comment":
-                require_once "../vertical-default-light/pages/comment/commentList.php";
-                break;
-              case "deleteComment":
-                require_once "../vertical-default-light/pages/comment/deleteComment.php";
-                break;
-              case "hideComment":
-                require_once "../vertical-default-light/pages/comment/hideComment.php";
-                break;
-              case "blogList":
-                require_once "../vertical-default-light/pages/Blogs/blogList.php.";
-                break;
-              case "addBlog":
-                require_once "../vertical-default-light/pages/Blogs/addBlog.php";
-                break;
-              case "updateBlog":
-                require_once "../vertical-default-light/pages/Blogs/updateBlog.php";
-                break;
-              case "deleteBlog":
-                require_once "../vertical-default-light/pages/Blogs/deleteBlog.php";
-                break;
-              case "logOut":
-                require_once "logOut.php";
-                break;
-              case "invoice":
-                require_once "../vertical-default-light/pages/invoice/invoiceList.php";
-                break;
-              case "detailInvoice":
-                require_once "../vertical-default-light/pages/invoice/detailInvoice.php";
-                break;
-              
+            if (isset($_GET['page'])) {
+              switch ($_GET['page']) {
+                case "productTypeList":
+                  require_once "../vertical-default-light/pages/productType/productTypeList.php";
+                  break;
+                case "addProductType":
+                  require_once "../vertical-default-light/pages/productType/addProductType.php";
+                  break;
+                case "updateProductType":
+                  require_once "../vertical-default-light/pages/productType/updateProductType.php";
+                  break;
+                case "deleteProductType":
+                  require_once "../vertical-default-light/pages/productType/deleteProductType.php";
+                  break;
+                case "userList":
+                  require_once "../vertical-default-light/pages/users/userList.php.";
+                  break;
+                case "addUser":
+                  require_once "../vertical-default-light/pages/users/addUser.php";
+                  break;
+                case "updateUser":
+                  require_once "../vertical-default-light/pages/users/updateUser.php";
+                  break;
+                case "deleteUser":
+                  require_once "../vertical-default-light/pages/users/deleteUser.php";
+                  break;
+                case "productList":
+                  require_once "../vertical-default-light/pages/products/productList.php.";
+                  break;
+                case "addProduct":
+                  require_once "../vertical-default-light/pages/products/addProduct.php";
+                  break;
+                case "updateProduct":
+                  require_once "../vertical-default-light/pages/products/updateProduct.php";
+                  break;
+                case "deleteProduct":
+                  require_once "../vertical-default-light/pages/products/deleteProduct.php";
+                  break;
+                case "comment":
+                  require_once "../vertical-default-light/pages/comment/commentList.php";
+                  break;
+                case "deleteComment":
+                  require_once "../vertical-default-light/pages/comment/deleteComment.php";
+                  break;
+                case "hideComment":
+                  require_once "../vertical-default-light/pages/comment/hideComment.php";
+                  break;
+                case "blogList":
+                  require_once "../vertical-default-light/pages/Blogs/blogList.php.";
+                  break;
+                case "addBlog":
+                  require_once "../vertical-default-light/pages/Blogs/addBlog.php";
+                  break;
+                case "updateBlog":
+                  require_once "../vertical-default-light/pages/Blogs/updateBlog.php";
+                  break;
+                case "deleteBlog":
+                  require_once "../vertical-default-light/pages/Blogs/deleteBlog.php";
+                  break;
+                case "logOut":
+                  require_once "logOut.php";
+                  break;
+                case "invoice":
+                  require_once "../vertical-default-light/pages/invoice/invoiceList.php";
+                  break;
+                case "detailInvoice":
+                  require_once "../vertical-default-light/pages/invoice/detailInvoice.php";
+                  break;
+                
+              }
             }
             ?>
           </div>

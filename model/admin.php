@@ -133,10 +133,10 @@ function addBlog($tieuDe,$tomTat,$noiDung,$hinhAnh,$idUser,$luotXem,$anHien)
    return pdo_execute($sql,$tieuDe,$tomTat,$noiDung,$hinhAnh,$idUser,$luotXem,$anHien);
 }
 //Sửa tin
-function updateBlog($tenSP, $donGia, $giamGia, $hinhAnh, $luotXem, $thongSo, $moTa, $anHien, $idLoai, $idTin)
+function updateBlog($tieuDe,$tomTat,$noiDung,$hinhAnh,$idUser,$luotXem,$anHien,$idTin)
 {
    $sql = "UPDATE tin SET tieuDe=?,tomTat=?,noiDung=?,hinhAnh=?,idUser=?,luotXem=?,anHien=? WHERE idTin=?";
-   return pdo_execute($sql, $tenSP, $donGia, $giamGia, $hinhAnh, $luotXem, $thongSo, $moTa, $anHien, $idLoai, $idTin);
+   return pdo_execute($sql,$tieuDe,$tomTat,$noiDung,$hinhAnh,$idUser,$luotXem,$anHien,$idTin);
 }
 //Xóa tin
 function deleteBlog($idTin)

@@ -8,7 +8,7 @@
                         <thead>
                             <tr>
                                 <th>ID User</th>
-                                <th>TTên đăng nhập</th>
+                                <th>Tên đăng nhập</th>
                                 <th>Mật khẩu</th>
                                 <th>Tên</th>
                                 <th>Email</th>

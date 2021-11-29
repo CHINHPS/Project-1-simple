@@ -101,14 +101,7 @@ $tin_nb=get_All_list_news_nb();
                     <div class="site-header__search">
                         <div class="search search--location--header">
                             <div class="search__body">
-                                <form class="search__form" action="#">
-                                    <select class="search__categories" aria-label="Category">
-                                        <option value="all">Tất cả các loại</option>
-                                        <option>Điện thoại</option>
-                                        <option>Laptop</option>
-                                        <option>Tablet</option>
-                                        <option>Phụ kiện</option>
-                                    </select>
+                                <form class="search__form" action="product/view-all" method="get">
                                     <input class="search__input" name="search" placeholder="Bạn tìm gì ?" aria-label="Site search" type="text" autocomplete="off">
                                     <button class="search__button search__button--type--submit" type="submit">
                                         <svg width="20px" height="20px">
@@ -145,7 +138,7 @@ $tin_nb=get_All_list_news_nb();
                                                         <a  class="departments__item-link" 
                                                             href="product-type/'.seo1($category_product["tenLoai"]).'/'.$category_product["idLoai"].'">
                                                             <i class="fas fa-mobile-alt" style="margin-right: 5px"></i>
-                                                             '.$category_product["tenLoai"].' 
+                                                             '.$category_product["tenLoai"].'
                                                         </a>
                                                     </li>
                                                     '?>

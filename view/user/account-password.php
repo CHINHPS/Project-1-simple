@@ -25,6 +25,7 @@
             updatePasswordUser(md5($newPass),$loginUser['email']);
             $_SESSION['login_user'] = check_login($loginUser['email'],md5($newPass));
             echo "<script>alert('Bạn đã cập nhật mật khẩu thành công')</script>";
+            $loginUser = $_SESSION['login_user'];
         }
     }
 ?>
