@@ -2,12 +2,21 @@
   session_start();
   if (isset($_SESSION['login_user'])){
     $UserLogin = $_SESSION['login_user'];
-}
-  if ($UserLogin['nhom']!=0 || is_array($UserLogin)==false){
+    if ($UserLogin['nhom']!=0){
+      echo "<script>
+      window.location='../../../';
+      </script>";
+    }
+  } else {
     echo "<script>
-    window.location='../../../';
-    </script>";
+      window.location='../../../';
+      </script>";
   }
+  // if ($UserLogin['nhom']!=0 || is_array($UserLogin)==false){
+  //   echo "<script>
+  //   window.location='../../../';
+  //   </script>";
+  // }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -75,7 +84,7 @@
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold">Xin chào <?=$UserLogin['ten'];?></h3>
+                  <h3 class="font-weight-bold">Xin chào <?php if (isset($_SESSION['login_user'])) echo $UserLogin['ten'];?></h3>
                 </div>
                 <div class="col-12 col-xl-4">
                   <div class="justify-content-end d-flex">

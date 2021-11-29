@@ -57,6 +57,17 @@ function getProductByIDLoai($idLoai){
    $sql = "SELECT * FROM san_pham Where idLoai=? LIMIT 0,7";
    return pdo_query($sql,$idLoai);
 }
+//Lấy sản phẩm bằng idLoai
+function getProductByKeyword($keyword){
+   $sql = "SELECT * FROM san_pham Where tenSP LIKE '%$keyword%'";
+   return pdo_query($sql);
+}
+
+function get_All_product_by_keyword($keyword){
+   $sql = "SELECT count(*) FROM san_pham Where tenSP LIKE '%$keyword%'";
+   $data = pdo_query_one($sql);
+   return $data['count(*)'];
+}
 //Lấy 1 hóa đơn
 function getInvoice($idHoaDon){
    $sql = "SELECT * FROM hoa_don Where idHoaDon=?";

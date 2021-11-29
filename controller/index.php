@@ -145,7 +145,20 @@ switch ($action) {
         break;
 
     case 'all_prod':
-        $sanpham = get_All_Products();
+        # phân trang trong loại
+        $page_size = 1; // số sản phẩm hiển thị
+        $page_num = 1;
+        if (isset($_GET['page_num'])) $page_num = $_GET['page_num']+0;
+        if ($page_num<=0) $page_num=1;
+        $base_url = Get_current_link('notQuery');
+        if (isset($_GET['search'])) {
+            $keyword = $_GET['search'];
+            $sanpham = getProductByKeyword($keyword);
+        }
+        $total_rows = get_All_product_by_keyword($keyword);
+
+
+        
         $danhmuc = get_All_category_product();
 
         $name_page = 'Tất cả sản phẩm';
