@@ -193,7 +193,6 @@
 
                                         <div class="product-card__prices"><?=number_format($sanpham_bcss['donGia'])?>đ</div>
                                         <div class="product-card__buttons">
-                                            <button class="btn btn-primary product-card__addtocart" type="button">Thêm vào giỏ hàng</button>
                                            
                                         </div>
                                     </div>
