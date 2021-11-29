@@ -121,7 +121,6 @@
                                         <div class="product-card__actions">
                                             <div class="product-card__prices"><?=number_format($sanphams['donGia'])?>đ</div>
                                             <div class="product-card__buttons">
-                                                <button class="btn btn-primary product-card__addtocart" type="button">Thêm giỏ hàng</button>
                                             </div>
                                         </div>
                                     </div>
