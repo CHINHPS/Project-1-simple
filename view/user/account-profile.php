@@ -10,7 +10,8 @@
         $sdt = trim(strip_tags($sdt));
         updateNameAndPhoneNumber($hoVaTen,$sdt,$loginUser['email']);
         $_SESSION['login_user'] = check_login($loginUser['email'],$loginUser['matKhau']);
-        // echo "<script>alert('Bạn đã cập nhật thông tin thành công')</script>";
+        echo "<script>alert('Bạn đã cập nhật thông tin thành công')</script>";
+        $loginUser = $_SESSION['login_user'];
     }
 ?>
 <form action="" method="post">
