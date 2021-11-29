@@ -19,3 +19,5 @@ RewriteRule ^contact$ controller/?act=contact
 RewriteRule ^forget-pass$ controller/?act=forget-pass
 
 RewriteRule ^list_news$ controller/?act=list_news
+
+RewriteRule ^my-cart$ controller/?act=my_cart

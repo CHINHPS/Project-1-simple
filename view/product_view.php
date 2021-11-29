@@ -89,7 +89,7 @@ $binhLuan = getCommentByIDSP($detai_pro['idSP']);
 
                         <div class="product__prices"><?= number_format($detai_pro['donGia']) ?>đ</div>
 
-                        <form class="product__options" action="?act=my_cart" method="POST">
+                        <form class="product__options" id="product_view" method="POST">
                             <input type="hidden" name="id_prod" value="<?php echo $detai_pro['idSP'] ?>">
                             <input type="hidden" name="gia" value="<?php echo $detai_pro['donGia'] ?>">
                             <input type="hidden" name="tensp" value="<?php echo $detai_pro['tenSP'] ?>">
@@ -97,12 +97,15 @@ $binhLuan = getCommentByIDSP($detai_pro['idSP']);
                             <div class="form-group product__option"><label class="product__option-label" for="product-quantity">Số lượng</label>
                                 <div class="product__actions">
                                     <div class="product__actions-item">
-                                        <div class="input-number product__quantity"><input name="soluong" id="product-quantity" class="input-number__input form-control form-control-lg" type="number" min="1" value="1">
+                                        <div class="input-number product__quantity">
+                                            <input name="soluong" id="product-quantity" class="input-number__input form-control form-control-lg" type="number" min="1" value="1">
                                             <div class="input-number__add"></div>
                                             <div class="input-number__sub"></div>
                                         </div>
                                     </div>
-                                    <div class="product__actions-item product__actions-item--addtocart"><input type="submit" name="addtocart" class="btn btn-primary btn-lg" value="Thêm giỏ hàng"></div>
+                                    <div class="product__actions-item product__actions-item--addtocart">
+                                        <button onclick="addCart();" class="btn btn-primary btn-lg">Thêm giỏ hàng</button>
+                                    </div>
 
                                 </div>
                             </div>
@@ -295,4 +298,28 @@ $binhLuan = getCommentByIDSP($detai_pro['idSP']);
             </div>
         </div>
     </div><!-- .block-products-carousel / end -->
+    <script>
+        function addCart(){
+            event.preventDefault();
+              
+            $.ajax({
+                    url: 'controller/?act=api-add-cart',
+                    type: 'POST',
+                    dataType: 'text',
+                    data: $('#product_view').serialize(),
+                    success: function(data){
+
+                        swal("Đơn hàng đã được thêm vào giỏ!", "", "success");
+                        $( "#listProduct_Cart" ).load("controller/?act=api-list-cart");
+                        $( "#count_product" ).text(data);
+                    },
+                    error: function(){
+                    
+                        swal("Có lỗi đã xảy ra!", "", "error");
+    
+                    }
+            });
+              
+        }
+    </script>
 </div><!-- site__body / end -->

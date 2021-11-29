@@ -14,7 +14,7 @@ $tin_nb=get_All_list_news_nb();
     <title>GalaxyPhone</title>
     <link rel="icon" type="image/png" href="libary/images/favicon.png">
     <!-- fonts -->
-    <base href="http://localhost/duan1/duan1nhom6/">
+    <base href="http://localhost/DUAN1_2/github/duan1nhom6/">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i">
     <!-- css -->
@@ -29,7 +29,9 @@ $tin_nb=get_All_list_news_nb();
     <!-- font - stroyka -->
     <link rel="stylesheet" href="libary/fonts/stroyka/stroyka.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 
 </head>
 
@@ -220,71 +222,28 @@ $tin_nb=get_All_list_news_nb();
                                 <!-- .nav-links / end -->
                                 <div class="nav-panel__indicators">
                                  
-                                    <div class="indicator indicator--trigger--click"><a href="?act=my_cart" class="indicator__button"><span class="indicator__area"><svg width="20px" height="20px">
-                                                    <use xlink:href="libary/images/sprite.svg#cart-20"></use>
-                                                </svg> 
-                                                <?php
-                                                 if(!empty($_SESSION['mycart']) ){
-                                                      echo '<span class="indicator__value"> '.sizeof($_SESSION['mycart']).' </span>' ;
-                                                    } 
-                                                 ?>
-                                            </span></a>
+                                <div class="indicator indicator--trigger--click">
+                                        <a href="cart.html" class="indicator__button">
+                                            <span class="indicator__area">
+                                                <i class="fas fa-cart-plus"></i>
+                                                <span class="indicator__value" id="count_product">
+                                                    <?=count($_SESSION['mycart'])?>
+                                                </span>
+                                            </span>
+                                        </a>
                                         <div class="indicator__dropdown">
                                             <!-- .dropcart -->
                                             <div class="dropcart dropcart--style--dropdown">
                                                 <div class="dropcart__body">
-                                                    <div class="dropcart__products-list">
                                                     
-
-                                                   <?php
-                                                   $tongc=0;
-                                                   if(sizeof($_SESSION['mycart']) > 0){
-                                                        $i = 0;
-                                                        foreach($_SESSION['mycart'] as $cart){
-                                                            $thanhtien = $cart[1] * $cart[4];
-                                                            $tongc += $thanhtien; 
-                                                            echo '         <div class="dropcart__product">
-                                                            <div class="product-image dropcart__product-image">
-                                                                <a href="product.php" class="product-image__body"><img class="product-image__img" src="'.$cart[3].'" alt="">
-                                                                </a>
-                                                            </div>
-                                                            <div class="dropcart__product-info">
-                                                                <div class="dropcart__product-name"><a href="product.php">'.$cart[2].'</a>
-                                                                </div>
-                                                                <div class="dropcart__product-meta"><span class="dropcart__product-quantity">'.$cart[4].'</span> × <span class="dropcart__product-price">'.$cart[1].'$</span>
-                                                                </div>
-                                                            </div>
-                                                            <a href="?act=delete_prod_cart&id='.$i.'"> 
-                                                            <button type="button" class="dropcart__product-remove btn btn-light btn-sm btn-svg-icon">
-                                                                <svg width="10px" height="10px">
-                                                                   <use xlink:href="libary/images/sprite.svg#cross-10"></use>
-                                                                </svg>
-                                                            </button>
-                                                            <a/>
-                                                        </div>';
-                                                        $i++;
-                                                        }
-                                                   }else{
-                                                       echo 'Bạn chưa có sản phẩm nào !';
-                                                   }
-                                                      echo ' 
-                                                      </div>
-                                                      <div class="dropcart__totals">
-                                                          <table>
-                                                            
-                                                              <tr>
-                                                                  <th>Tổng cộng</th>
-                                                                  <td>'. $tongc.'$</td>
-                                                              </tr>
-                                                          </table>
-                                                      </div>
-                                                      <div class="dropcart__buttons"><a class="btn btn-secondary" href="?act=my_cart">Xem giỏ hàng</a> <a class="btn btn-primary" href="checkout.php">Thanh toán</a>
-                                                      </div>';
-                                                   ?>
-
-
-
-                                                  
+                                                     <script>
+                                                        $(document).ready(function(){
+                                                            $( "#listProduct_Cart" ).load("controller/?act=api-list-cart");
+                                                    	});
+                                                    </script>
+                                                    <div id="listProduct_Cart"></div>
+                                                   
+                                                   
                                                 </div>
                                             </div>
                                             <!-- .dropcart / end -->

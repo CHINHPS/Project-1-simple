@@ -91,36 +91,62 @@ switch ($action) {
             echo "Bạn chưa đăng nhập mà xem gì v b?";
         
         break;
+    case 'test':
+        $my_cart = $_SESSION['mycart'];
+
+        if(isset($my_cart[3]))
+            echo "tim thay";
+
+        print_r(($_SESSION['mycart']));
+        echo '<pre>';
+        break;
+
+    case 'api-list-cart':
+        $data = $_SESSION['mycart'];
+        $allCart = 0;
+        include_once '../view/ajax/showCart.php';
+        break;
 
     case 'my_cart':
-        if(isset($_POST['addtocart']) && ($_POST['addtocart'])){
-            $id_pro = $_POST['id_prod'];
-            $price = $_POST['gia'];
-            $ten=$_POST['tensp'];
-            $anh= $_POST['hinhanh'];
-            $sl= $_POST['soluong'];
-            $pro_cart=[$id_pro,$price,$ten,$anh,$sl];
-            array_push($_SESSION['mycart'],$pro_cart);
-            header("location:" . $_SERVER['HTTP_REFERER']);
-            
-        }
         $main = '../view/cart.php';
         include_once '../view/header.php';
         break;
 
-    case 'delete_prod_cart':
-        if (isset($_GET['id'])) {
-            array_splice($_SESSION['mycart'],($_GET['id']) , 1);
-        }else{
-             $_SESSION['mycart']=[];
+    case 'api-del-cart':
+        # kiểm tra có dữ liệu dc gửi tới và xóa sản phẩm khỏi cart
+        if(isset($_GET['id']))
+            unset($_SESSION['mycart'][$_GET['id']]);
+        echo count($_SESSION['mycart']);
+        break;
+
+
+    case 'api-add-cart':
+        if(isset($_POST['id_prod']) && ($_POST['id_prod'])){
+
+            $my_cart = $_SESSION['mycart'];
+
+            $id_pro = $_POST['id_prod'];
+            $price = $_POST['gia'];
+            $ten = $_POST['tensp'];
+            $anh = $_POST['hinhanh'];
+            $sl = (int)$_POST['soluong'];
+
+            if(isset($my_cart[$id_pro])){
+                $_SESSION['mycart'][$id_pro]['quantity'] += 1;
+                $_SESSION['mycart'][$id_pro]['price'] += $price * $sl;
+            } else {
+                $_SESSION['mycart'][$id_pro] = 
+                [
+                    'thumb'         => $anh,
+                    'nameProduct'   => $ten,
+                    'price'         => $price * $sl,
+                    'quantity'      => $sl
+                ];
+            }
+            echo count($_SESSION['mycart']);
         }
-        header("location:" . $_SERVER['HTTP_REFERER']);
-        break; 
-    
-    case 'delete_all_prod_cart':
-        unset($_SESSION['mycart']);
-        header("location:" . $_SERVER['HTTP_REFERER']);
-        break; 
+        break;
+
     case 'list_news':
         $new = get_All_list_news();
 

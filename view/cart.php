@@ -49,7 +49,7 @@
                                     </div>
                                 </td>
                                 <td class="cart-table__column cart-table__column--total" data-title="Total">'.$thanhtien.'</td>
-                                <td><a href="?act=delete_prod_cart&id='.$i.'">XÓA</a></td>
+                                <td><a href="controller/?act=delete_prod_cart&id='.$i.'">XÓA</a></td>
                                 <td class="cart-table__column cart-table__column--remove"><button type="button" class="btn btn-light btn-sm btn-svg-icon"><svg width="12px" height="12px">
                                             <use xlink:href="images/sprite.svg#cross-12"></use>
                                         </svg></button></td>
