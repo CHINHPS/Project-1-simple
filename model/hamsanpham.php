@@ -6,6 +6,14 @@ function get_All_Products(){
    return pdo_query($sql);
 }
 
+// lấy số lượng tất cả sp theo trang
+function get_All_product_by_page($page_num, $page_size){
+
+   $start_now = ($page_num-1)*$page_size;
+   $sql = "SELECT * FROM san_pham LIMIT $start_now,$page_size ";
+   return pdo_query($sql);
+}
+
 function get_All_Products_BC(){
    $sql= "SELECT * FROM san_pham LIMIT 0,15"; 
    return pdo_query($sql);
@@ -63,11 +71,20 @@ function getProductByKeyword($keyword){
    return pdo_query($sql);
 }
 
+// lấy số lượng tất cả sp
+function get_All_product_COUT(){
+   $sql = "SELECT count(*) FROM san_pham";
+   $data = pdo_query_one($sql);
+   return $data['count(*)'];
+}
+
+// lấy số lượng sản phẩm theo keyword
 function get_All_product_by_keyword($keyword){
    $sql = "SELECT count(*) FROM san_pham Where tenSP LIKE '%$keyword%'";
    $data = pdo_query_one($sql);
    return $data['count(*)'];
 }
+
 //Lấy 1 hóa đơn
 function getInvoice($idHoaDon){
    $sql = "SELECT * FROM hoa_don Where idHoaDon=?";

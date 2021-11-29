@@ -1,5 +1,9 @@
 <?php
 
+function Get_link_home(){
+    $link = "http://localhost/DUAN1_2/github/duan1nhom6";
+    return $link;
+}
 function Get_current_link($type = 'default'){
 
     if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   

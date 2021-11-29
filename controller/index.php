@@ -3,11 +3,12 @@ session_start();
 ob_start();
 if (!isset($_SESSION['mycart'])) $_SESSION['mycart'] = [];
 
+include_once '../model/global.php';
 include_once "../model/hamsanpham.php";
 include_once "../model/hamnguoidung.php";
 include_once "../model/hamtintuc.php";
-include_once '../model/global.php';
 include_once 'sendMail.php';
+$shipping = 30000;
 
 if(isset($_GET['act']))
     $action = $_GET['act'];
@@ -90,15 +91,6 @@ switch ($action) {
             echo "Bạn chưa đăng nhập mà xem gì v b?";
         
         break;
-    case 'test':
-        $my_cart = $_SESSION['mycart'];
-
-        if(isset($my_cart[3]))
-            echo "tim thay";
-
-        print_r(($_SESSION['mycart']));
-        echo '<pre>';
-        break;
 
     case 'api-list-cart':
         $data = $_SESSION['mycart'];
@@ -107,8 +99,54 @@ switch ($action) {
         break;
 
     case 'my_cart':
+        $allCart = 0;
+        if(isset($_SESSION['login_user']))
+            $loginUser = $_SESSION['login_user'];
+        else
+            $loginUser = [
+                'tenDangNhap' => '',
+                'soDienThoai' => ''
+            ];
+
+        $data = $_SESSION['mycart'];
         $main = '../view/cart.php';
         include_once '../view/header.php';
+        break;
+
+    case 'api-checkout':
+        if(!isset($_SESSION['login_user'])){
+            header('HTTP/1.1 500 Internal Server Booboo');
+            die('chưa đăng nhập');
+        }
+        # kiểm tra thông tin đầu vào
+        $ten_nguoi_nhan = $_POST['ten_nguoi_nhan'];
+        $dia_chi = $_POST['dia_chi'];
+        $so_dien_thoai = (int)$_POST['so_dien_thoai'];
+        $ghi_chu = $_POST['ghi_chu'];
+
+        if($ten_nguoi_nhan == '' || $dia_chi == '' || $so_dien_thoai == 0){
+            header('HTTP/1.1 500 Internal Server Booboo');
+            die('chưa nhập đẩy đủ thông tin');
+        }
+
+        # xử lý thanh toán
+        $data = $_SESSION['mycart'];
+        $login_user = $_SESSION['login_user'];
+        $allCart = 0;
+
+        # tổng tiền
+        foreach($data as $value) 
+            $allCart += $value['price'];
+        
+        $id_hd = Them_hoa_don($dia_chi,$shipping + $allCart,$login_user['idUser']);
+
+        foreach($data as $key => $value) 
+            Them_Chi_tiet_hoa_don($key,$value['nameProduct'],$value['price'] / $value['quantity'],$value['quantity'],$id_hd);
+
+        # làm trống giỏ hàng
+        $_SESSION['mycart'] = [];
+        echo json_encode(array('msg' => 'Đặt hàng thành công', 'code' => 1337));
+
         break;
 
     case 'api-del-cart':
@@ -131,7 +169,7 @@ switch ($action) {
             $sl = (int)$_POST['soluong'];
 
             if(isset($my_cart[$id_pro])){
-                $_SESSION['mycart'][$id_pro]['quantity'] += 1;
+                $_SESSION['mycart'][$id_pro]['quantity'] += $sl;
                 $_SESSION['mycart'][$id_pro]['price'] += $price * $sl;
             } else {
                 $_SESSION['mycart'][$id_pro] = 
@@ -172,16 +210,20 @@ switch ($action) {
 
     case 'all_prod':
         # phân trang trong loại
-        $page_size = 1; // số sản phẩm hiển thị
+        $page_size = 6; // số sản phẩm hiển thị
         $page_num = 1;
         if (isset($_GET['page_num'])) $page_num = $_GET['page_num']+0;
         if ($page_num<=0) $page_num=1;
         $base_url = Get_current_link('notQuery');
+        
         if (isset($_GET['search'])) {
             $keyword = $_GET['search'];
-            $sanpham = getProductByKeyword($keyword);
+            $sanpham = getProductByKeyword($keyword,$page_num, $page_size);
+            $total_rows = get_All_product_by_keyword($keyword);
+        } else {
+            $total_rows = get_All_product_COUT();
+            $sanpham = get_All_product_by_page($page_num, $page_size);
         }
-        $total_rows = get_All_product_by_keyword($keyword);
 
 
         

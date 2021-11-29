@@ -11,6 +11,17 @@ function register_user($email , $pass,$hoVaTen,$soDienThoai){
     return pdo_execute($sql);
 }
 
+
+function Them_hoa_don($dia_chi,$thanh_tien,$idUser){
+   $sql = "INSERT INTO hoa_don (thanhTien,diaChi,idUser) VALUES (?,?,?)";
+   return pdo_execute_return_lastInsertId($sql, $thanh_tien, $dia_chi, $idUser);
+}
+
+function Them_Chi_tiet_hoa_don($idSP,$tenSP,$donGia,$soLuong,$idHoaDon){
+  $sql = "INSERT INTO chi_tiet_hoa_don (idSP,tenSP,donGia,soLuong,idHoaDon) VALUES (?,?,?,?,?)";
+  return pdo_execute_return_lastInsertId($sql, $idSP, $tenSP, $donGia, $soLuong, $idHoaDon);
+}
+
 function Kiem_Tra_Email_Tontai($email){
   $sql="SELECT email FROM tai_khoan WHERE email ='$email'";
   return pdo_query($sql);
