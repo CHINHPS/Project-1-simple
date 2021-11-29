@@ -35,7 +35,7 @@
         <form class="forms-sample" method="post">
             <div class="form-group">
                 <label>Tên đăng nhập</label>
-                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Tên đăng nhập" name="tenDangNhap" required maxlength="30" value="<?=$user['tenDangNhap']?>">
+                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Tên đăng nhập" name="tenDangNhap" maxlength="30" value="<?=$user['tenDangNhap']?>">
             </div>
             <div class="form-group">
                 <label>Mật khẩu</label>

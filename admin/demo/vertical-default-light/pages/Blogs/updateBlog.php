@@ -11,12 +11,22 @@ if (isset($_POST['btn'])) {
     $tieuDe = trim(strip_tags($tieuDe));
     $tomTat = trim(strip_tags($tomTat));
     $hinhAnh = trim(strip_tags($hinhAnh));
-    $kq = addBlog($tieuDe,$tomTat,$noiDung,$hinhAnh,$blog['idUser'],$blog['luotXem'],$anHien);
+    $kq = updateBlog($tieuDe,$tomTat,$noiDung,$hinhAnh,$blog['idUser'],$blog['luotXem'],$anHien,$idTin);
+    $blog = getBlog($idTin);
+    echo "<script>
+            window.location='?page=blogList';
+            </script>";
 }
 ?>
+<style>
+.ck-editor__editable_inline {
+    min-height: 250px;
+    max-height: 450px;
+}
+</style>
 <div class="card">
     <div class="card-body">
-        <h4 class="card-title">THÊM TIN</h4>
+        <h4 class="card-title">SỬA TIN</h4>
         <p class="card-description">
         </p>
         <form class="forms-sample" method="post">
@@ -30,7 +40,7 @@ if (isset($_POST['btn'])) {
             </div>
             <div class="form-group">
                 <label>Nội dung</label>
-                <textarea id="" cols="150" rows="30" name="noiDung" required><?=$blog['noiDung'];?></textarea>
+                <textarea id="noiDung" name="noiDung" required><?=$blog['noiDung'];?></textarea>
             </div>
             <div class="form-group">
                 <label>Hình ảnh</label>
@@ -47,3 +57,15 @@ if (isset($_POST['btn'])) {
         </form>
     </div>
 </div>
+<script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/translations/vi.js"> </script>
+<script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script>
+<script>
+ClassicEditor
+    .create(document.querySelector('#noiDung'),{language: 'vi'} )
+    .then( editor => {
+        console.log( editor );
+    } )
+    .catch( error => {
+        console.error( error );
+    } );    
+</script>
