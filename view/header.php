@@ -12,7 +12,7 @@ $tin_nb=get_All_list_news_nb();
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="format-detection" content="telephone=no">
     <title>GalaxyPhone</title>
-    <link rel="icon" type="image/png" href="libary/images/favicon.png">
+    <link rel="icon" type="image/png" href="../admin/images/favicon.png">
     <!-- fonts -->
     <base href="<?=Get_link_home()?>/">
 
@@ -92,10 +92,10 @@ $tin_nb=get_All_list_news_nb();
         </header>
         <header class="site__header d-lg-block d-none">
             <div class="site-header">
-            
                 <div class="site-header__middle container">
                     <div class="site-header__logo">
                         <a href="index.php">
+                            <img src="../admin/images/logo-ngang.png" alt="" style="width: 100%; height: 100%">
                         </a>
                     </div>
                     <div class="site-header__search">
