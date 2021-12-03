@@ -162,4 +162,40 @@ function getProductByIDLoai($idLoai)
    $sql = "select * from san_pham where idLoai=?";
    return pdo_query_one($sql, $idLoai);
 }
+//Doanh thu 1 tháng
+function revenue($month)
+{
+   $sql = "SELECT sum(thanhTien) FROM hoa_don WHERE MONTH(ngayMua) = ?";
+   $data = pdo_query_one($sql, $month);
+   return $data['sum(thanhTien)'];
+}
+//Tổng số sản phẩm bán được
+function totalProductSold()
+{
+   $sql = "SELECT sum(soLuong) FROM chi_tiet_hoa_don";
+   $data = pdo_query_one($sql);
+   return $data['sum(soLuong)'];
+}
+//Số tài khoản tạo trong ngày
+function userCreateToday($today)
+{
+   $sql = "SELECT count(*) FROM tai_khoan WHERE date(ngayTao)=?";
+   $data = pdo_query_one($sql,$today);
+   return $data['count(*)'];
+}
+//Số tài khoản tạo trong ngày
+function commentCreateToday($today)
+{
+   $sql = "SELECT count(*) FROM binh_luan WHERE date(ngayDang)=?";
+   $data = pdo_query_one($sql,$today);
+   return $data['count(*)'];
+}
+//Số tài khoản tạo trong ngày
+function invoiceCreateToday($today)
+{
+   $sql = "SELECT count(*) FROM hoa_don WHERE date(ngayMua)=?";
+   $data = pdo_query_one($sql,$today);
+   return $data['count(*)'];
+}
+
 ?>

@@ -178,79 +178,80 @@
       });
     }
     if ($("#sales-chart").length) {
-      var SalesChartCanvas = $("#sales-chart").get(0).getContext("2d");
-      var SalesChart = new Chart(SalesChartCanvas, {
-        type: 'bar',
-        data: {
-          labels: ["1", "2", "3", "4", "5"],
-          datasets: [{
-              label: 'Offline Sales',
-              data: [480, 230, 470, 210, 330],
-              backgroundColor: '#98BDFF'
-            },
-            {
-              label: 'Online Sales',
-              data: [400, 340, 550, 480, 170],
-              backgroundColor: '#4B49AC'
-            }
-          ]
-        },
-        options: {
-          cornerRadius: 5,
-          responsive: true,
-          maintainAspectRatio: true,
-          layout: {
-            padding: {
-              left: 0,
-              right: 0,
-              top: 20,
-              bottom: 0
-            }
-          },
-          scales: {
-            yAxes: [{
-              display: true,
-              gridLines: {
-                display: true,
-                drawBorder: false,
-                color: "#F2F2F2"
-              },
-              ticks: {
-                display: true,
-                min: 0,
-                max: 560,
-                callback: function(value, index, values) {
-                  return  value + '$' ;
-                },
-                autoSkip: true,
-                maxTicksLimit: 10,
-                fontColor:"#6C7383"
+      const xhttp = new XMLHttpRequest();
+      xhttp.onload = function() {
+        var SalesChartCanvas = $("#sales-chart").get(0).getContext("2d");
+        var SalesChart = new Chart(SalesChartCanvas, {
+          type: 'bar',
+          data: {
+            labels: ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"],
+            datasets: [
+              {
+                label: 'Online Sales',
+                data: JSON.parse(this.responseText),
+                backgroundColor: '#4B49AC'
               }
-            }],
-            xAxes: [{
-              stacked: false,
-              ticks: {
-                beginAtZero: true,
-                fontColor: "#6C7383"
-              },
-              gridLines: {
-                color: "rgba(0, 0, 0, 0)",
-                display: false
-              },
-              barPercentage: 1
-            }]
+            ]
           },
-          legend: {
-            display: false
-          },
-          elements: {
-            point: {
-              radius: 0
+          options: {
+            cornerRadius: 5,
+            responsive: true,
+            maintainAspectRatio: true,
+            layout: {
+              padding: {
+                left: 0,
+                right: 0,
+                top: 20,
+                bottom: 0
+              }
+            },
+            scales: {
+              yAxes: [{
+                display: true,
+                gridLines: {
+                  display: true,
+                  drawBorder: false,
+                  color: "#F2F2F2"
+                },
+                ticks: {
+                  display: true,
+                  min: 0,
+                  max: 200000000,
+                  callback: function(value, index, values) {
+                    return  value + ' vnđ' ;
+                  },
+                  autoSkip: true,
+                  maxTicksLimit: 10,
+                  fontColor:"#6C7383"
+                }
+              }],
+              xAxes: [{
+                stacked: false,
+                ticks: {
+                  beginAtZero: true,
+                  fontColor: "#6C7383"
+                },
+                gridLines: {
+                  color: "rgba(0, 0, 0, 0)",
+                  display: false
+                },
+                barPercentage: 1
+              }]
+            },
+            legend: {
+              display: false
+            },
+            elements: {
+              point: {
+                radius: 0
+              }
             }
-          }
-        },
-      });
-      document.getElementById('sales-legend').innerHTML = SalesChart.generateLegend();
+          },
+        });
+        document.getElementById('sales-legend').innerHTML = SalesChart.generateLegend();
+        }
+      xhttp.open("GET", "../vertical-default-light/pages/dashboard/schemaTable.php", true);
+      xhttp.send();
     }
     if ($("#sales-chart-dark").length) {
       var SalesChartCanvas = $("#sales-chart-dark").get(0).getContext("2d");

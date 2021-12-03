@@ -44,7 +44,11 @@
   <!-- endinject -->
   <link rel="shortcut icon" href="../../images/favicon.png" />
 </head>
-<?php require_once "../../../model/admin.php" ?>
+<?php
+  require_once "../../../model/admin.php";
+  require_once "../../../model/global.php";
+?>
+
 
 <body>
   <div class="container-scroller">
