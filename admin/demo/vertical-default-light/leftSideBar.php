@@ -1,7 +1,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="?page=dashboard">
                 <i class="icon-bar-graph menu-icon"></i>
                 <span class="menu-title">Thống kê</span>
             </a>

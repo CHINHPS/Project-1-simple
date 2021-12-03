@@ -182,7 +182,7 @@
       var SalesChart = new Chart(SalesChartCanvas, {
         type: 'bar',
         data: {
-          labels: ["Jan", "Feb", "Mar", "Apr", "May"],
+          labels: ["1", "2", "3", "4", "5"],
           datasets: [{
               label: 'Offline Sales',
               data: [480, 230, 470, 210, 330],

@@ -166,8 +166,12 @@
                 case "detailInvoice":
                   require_once "../vertical-default-light/pages/invoice/detailInvoice.php";
                   break;
-                
+                case "dashboard":
+                  require_once "../vertical-default-light/pages/dashboard/dashboard.php";
+                  break; 
               }
+            } else {
+              require_once "../vertical-default-light/pages/dashboard/dashboard.php";
             }
             ?>
           </div>
