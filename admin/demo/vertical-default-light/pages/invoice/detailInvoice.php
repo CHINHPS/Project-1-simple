@@ -24,9 +24,9 @@
                                 <tr>
                                     <td><?= $thuTu; ?></td>
                                     <td><?= $hoa_Don_Chi_Tiet['tenSP']; ?></td>
-                                    <td><?= $hoa_Don_Chi_Tiet['donGia']; ?> vnđ</td>
+                                    <td><?= number_format($hoa_Don_Chi_Tiet['donGia']); ?> vnđ</td>
                                     <td><?= $hoa_Don_Chi_Tiet['soLuong']; ?></td>
-                                    <td><?= $hoa_Don_Chi_Tiet['donGia']*$hoa_Don_Chi_Tiet['soLuong'];?> vnđ</td>
+                                    <td><?= number_format($hoa_Don_Chi_Tiet['donGia']*$hoa_Don_Chi_Tiet['soLuong']);?> vnđ</td>
                                 </tr>
                             <?php  $thuTu++; } ?>
                         </tbody>

@@ -23,7 +23,7 @@
                                     <?php $user = getUser($hoa_don['idUser']);?>
                                     <td><?= $user['email']; ?></td>
                                     <td><?= date("d/m/Y", strtotime($hoa_don['ngayMua'])); ?></td>
-                                    <td><?= $hoa_don['thanhTien']; ?> vnđ</td>
+                                    <td><?= number_format($hoa_don['thanhTien']); ?> vnđ</td>
                                     <td><?= $hoa_don['diaChi']; ?></td>
                                     <td style="text-align: center;">
                                         <a href="?page=detailInvoice&idHoaDon=<?= $hoa_don['idHoaDon']; ?>"><button class="btn btn-outline-primary">Chi Tiết</button></a>

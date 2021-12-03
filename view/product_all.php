@@ -42,9 +42,11 @@
                                                     <div class="filter-categories-alt">
                                                         <ul class="filter-categories-alt__list filter-categories-alt__list--level--1" data-collapse-opened-class="filter-categories-alt__item--open">
                                                             <?php foreach($danhmuc as $danhmucs){ ?>
+                                                                <?php if(getProductByIDLoai($danhmucs['idLoai'])!=null) echo ' 
                                                             <li class="filter-categories-alt__item" data-collapse-item>
-                                                                <a href="product-type/<?=seo1($danhmucs['tenLoai'])?>/<?=$danhmucs['idLoai']?>"><?php echo $danhmucs['tenLoai'] ?></a>
-                                                            </li>     
+                                                                <a href="product-type/'.seo1($danhmucs["tenLoai"]).'/'.$danhmucs["idLoai"].'">'.$danhmucs["tenLoai"].'</a>
+                                                            </li>
+                                                            '; ?> 
                                                             <?php } ?>
                                                         </ul>
                                                     </div>

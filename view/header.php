@@ -12,7 +12,7 @@ $tin_nb=get_All_list_news_nb();
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="format-detection" content="telephone=no">
     <title>GalaxyPhone</title>
-    <link rel="icon" type="image/png" href="../admin/images/favicon.png">
+    <link rel="icon" type="image/png" href="./admin/images/favicon.png">
     <!-- fonts -->
     <base href="<?=Get_link_home()?>/">
 
@@ -52,8 +52,8 @@ $tin_nb=get_All_list_news_nb();
                             </a>
                             <div class="search search--location--mobile-header mobile-header__search">
                                 <div class="search__body">
-                                    <form class="search__form" action="#">
-                                        <input class="search__input" name="search" placeholder="Search over 10,000 products" aria-label="Site search" type="text" autocomplete="off">
+                                    <form class="search__form" action="product/view-all" method="get">
+                                        <input class="search__input" name="search" placeholder="Bạn tìm gì ?" aria-label="Site search" type="text" autocomplete="off">
                                         <button class="search__button search__button--type--submit" type="submit">
                                             <svg width="20px" height="20px">
                                                 <use xlink:href="images/sprite.svg#search-20"></use>
@@ -94,8 +94,8 @@ $tin_nb=get_All_list_news_nb();
             <div class="site-header">
                 <div class="site-header__middle container">
                     <div class="site-header__logo">
-                        <a href="index.php">
-                            <img src="../admin/images/logo-ngang.png" alt="" style="width: 100%; height: 100%">
+                        <a href="">
+                            <img src="./admin/images/logo-ngang.png" alt="" style="width: 100%; height: 100%">
                         </a>
                     </div>
                     <div class="site-header__search">
@@ -162,7 +162,7 @@ $tin_nb=get_All_list_news_nb();
                                 <div class="nav-panel__nav-links nav-links">
                                     <ul class="nav-links__list">
                                         <li class="nav-links__item nav-links__item--has-submenu">
-                                            <a class="nav-links__item-link" href="index.php">
+                                            <a class="nav-links__item-link" href="">
                                                 <div class="nav-links__item-body">Trang chủ
                                                 </div>
                                             </a>

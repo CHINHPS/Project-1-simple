@@ -94,10 +94,6 @@
                         <div class="block-products-carousel__column">
                             <div class="block-products-carousel__cell">
                                     <div class="product-card product-card--hidden-actions">
-                                      
-                                        <div class="product-card__badges-list">
-                                            <div class="product-card__badge product-card__badge--hot"></div>
-                                        </div>
                                         <div class="product-card__image product-image">
                                             <a href="view-product/<?=seo1($sanphams['tenSP'])?>/<?=$sanphams['idSP']?>" class="product-image__body"><img class="product-image__img" src="<?=$sanphams['hinhAnh'] ?>" alt="" width="100%">
                                             </a>

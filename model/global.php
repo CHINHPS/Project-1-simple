@@ -1,7 +1,7 @@
 <?php
 
 function Get_link_home(){
-    $link = "http://localhost/duan1/duan1nhom6/";
+    $link = "http://localhost/duan1/duan1nhom6";
     return $link;
 }
 function Get_current_link($type = 'default'){

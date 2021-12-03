@@ -21,3 +21,7 @@ RewriteRule ^forget-pass$ controller/?act=forget-pass
 RewriteRule ^list_news$ controller/?act=list_news [QSA,L]
 
 RewriteRule ^my-cart$ controller/?act=my_cart
+
+RewriteRule ^$ controller/
+
+RewriteRule ^administrator$ admin/demo/vertical-default-light

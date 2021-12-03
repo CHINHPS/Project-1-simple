@@ -51,7 +51,6 @@ if (isset($_POST['btn'])) {
                 <label for="anHien2">Ẩn</label>
             </div>
             <input type="submit" class="btn btn-primary me-2" name="btn" value="Thêm tin"></input>
-            <button class="btn btn-light">Cancel</button>
         </form>
     </div>
 </div>

@@ -26,16 +26,16 @@
                                 $thongSo = json_decode($san_pham['thongSo'], true);
                             ?>
                                 <tr>
-                                    <td><?= $san_pham['idSP']; ?></td>
-                                    <td><?= $san_pham['tenSP']; ?></td>
-                                    <td><?= $san_pham['donGia']; ?></td>
-                                    <td><?= $san_pham['giamGia']; ?></td>
-                                    <td><?= date("d/m/Y", strtotime($san_pham['ngayNhap'])); ?></td>
-                                    <td>
+                                    <td max-width="1px"><?= $san_pham['idSP']; ?></td>
+                                    <td max-width="1px"><?= $san_pham['tenSP']; ?></td>
+                                    <td max-width="1px"><?= number_format($san_pham['donGia']); ?></td>
+                                    <td max-width="1px"><?= number_format($san_pham['giamGia']); ?></td>
+                                    <td max-width="1px"><?= date("d/m/Y", strtotime($san_pham['ngayNhap'])); ?></td>
+                                    <td max-width="1px">
                                         <img src="<?= $san_pham['hinhAnh']; ?>" alt="">
                                     </td>
                                     <td><?= $san_pham['luotXem']; ?></td>
-                                    <td>
+                                    <td max-width="1px">
                                         <span>Màn hình: </span> <?= $thongSo["manHinh"]; ?> <br>
                                         <span>Hệ điều hành: </span> <?= $thongSo["heDieuHanh"]; ?><br>
                                         <span>Camera trước: </span> <?= $thongSo["cameraTruoc"]; ?><br>
@@ -47,10 +47,10 @@
                                         <span>Pin/Sạc: </span> <?= $thongSo["pinVSac"]; ?>
                                     </td>
                                     <?php $loai_san_pham = getProductType($san_pham['idLoai']);?>
-                                    <td><?= $loai_san_pham['tenLoai']; ?></td>
-                                    <td><?php if ($san_pham['anHien'] == 1) echo "Ẩn";
+                                    <td max-width="1px"><?= $loai_san_pham['tenLoai']; ?></td>
+                                    <td max-width="1px"><?php if ($san_pham['anHien'] == 1) echo "Ẩn";
                                         else echo "Hiện"; ?></td>
-                                    <td style="text-align: center;">
+                                    <td max-width="1px" style="text-align: center;">
                                         <a href="?page=updateProduct&idSP=<?= $san_pham['idSP']; ?>"><button class="btn btn-outline-primary">Sửa</button></a>
                                         <a href="?page=deleteProduct&idSP=<?= $san_pham['idSP']; ?>"><button class="btn btn-outline-primary" onclick="return confirm('Bạn có muốn xóa sản phẩm này ?')">Xóa</button></a>
                                     </td>
