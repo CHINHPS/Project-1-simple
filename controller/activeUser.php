@@ -6,7 +6,7 @@
         if (substr(md5($taiKhoan['email']),7,-3)==$randomkey){
             activeUser($taiKhoan['email']);
             echo "<script>alert('Tài khoản của bạn đã được kích hoạt thành công');
-                    document.location='index.php';
+                    document.location='../';
             </script>";
             break;
         }

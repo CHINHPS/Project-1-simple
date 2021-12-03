@@ -24,4 +24,6 @@ RewriteRule ^my-cart$ controller/?act=my_cart
 
 RewriteRule ^$ controller/
 
+RewriteRule ^$ controller/index.php
+
 RewriteRule ^administrator$ admin/demo/vertical-default-light

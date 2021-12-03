@@ -24,7 +24,7 @@
                             <tr>
                                 <td><?=$hoa_don['idHoaDon']?></td>
                                 <td><?=date("d/m/Y h:i:s",strtotime($hoa_don['ngayMua']))?></td>
-                                <td><?=$hoa_don['thanhTien']?></td>
+                                <td><?=number_format($hoa_don['thanhTien'])?></td>
                                 <td><a href="user/order-detail-view?id=<?=$hoa_don['idHoaDon'];?>">Chi tiết</a></td>
                             </tr>
                         <?php } ?>

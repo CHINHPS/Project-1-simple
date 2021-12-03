@@ -1,15 +1,20 @@
 <?php
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+?>
+<?php
   session_start();
   if (isset($_SESSION['login_user'])){
     $UserLogin = $_SESSION['login_user'];
     if ($UserLogin['nhom']!=0){
       echo "<script>
-      window.location='../../../';
+      window.location='/';
       </script>";
     }
   } else {
     echo "<script>
-      window.location='../../../';
+      window.location='/';
       </script>";
   }
   // if ($UserLogin['nhom']!=0 || is_array($UserLogin)==false){
@@ -20,10 +25,7 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
-
 <!-- Mirrored from www.bootstrapdash.com/demo/skydash/template/demo/vertical-default-light/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 04 Nov 2021 04:35:30 GMT -->
-
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -48,8 +50,6 @@
   require_once "../../../model/admin.php";
   require_once "../../../model/global.php";
 ?>
-
-
 <body>
   <div class="container-scroller">
     <?php require_once "header.php" ?>
@@ -117,7 +117,7 @@
                   require_once "../vertical-default-light/pages/productType/deleteProductType.php";
                   break;
                 case "userList":
-                  require_once "../vertical-default-light/pages/users/userList.php.";
+                  require_once "../vertical-default-light/pages/users/userList.php";
                   break;
                 case "addUser":
                   require_once "../vertical-default-light/pages/users/addUser.php";
@@ -129,7 +129,7 @@
                   require_once "../vertical-default-light/pages/users/deleteUser.php";
                   break;
                 case "productList":
-                  require_once "../vertical-default-light/pages/products/productList.php.";
+                  require_once "../vertical-default-light/pages/products/productList.php";
                   break;
                 case "addProduct":
                   require_once "../vertical-default-light/pages/products/addProduct.php";
@@ -150,7 +150,7 @@
                   require_once "../vertical-default-light/pages/comment/hideComment.php";
                   break;
                 case "blogList":
-                  require_once "../vertical-default-light/pages/Blogs/blogList.php.";
+                  require_once "../vertical-default-light/pages/Blogs/blogList.php";
                   break;
                 case "addBlog":
                   require_once "../vertical-default-light/pages/Blogs/addBlog.php";
