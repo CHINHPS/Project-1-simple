@@ -7,7 +7,7 @@ if (isset($_POST['btn'])) {
     $tenSP = $_POST['tenSP'];
     $donGia = $_POST['donGia'];
     $giamGia = $_POST['giamGia'];
-    $hinhAnh = $_POST['hinhAnh'];
+    $hinh = $_POST['hinh'];
     $manHinh = $_POST['manHinh'];
     $heDieuHanh = $_POST['heDieuHanh'];
     $cameraTruoc = $_POST['cameraTruoc'];
@@ -23,8 +23,8 @@ if (isset($_POST['btn'])) {
     $anHien = $_POST['anHien'];
     $idLoai = $_POST['loai'];
     $tenSP = trim(strip_tags($tenSP));
-    $hinhAnh = trim(strip_tags($hinhAnh));
-    $kq = updateProduct($tenSP, $donGia, $giamGia, $hinhAnh, 0, $thongSo, $moTa, $anHien, $idLoai, $idSP);
+    $hinh = trim(strip_tags($hinh));
+    $kq = updateProduct($tenSP, $donGia, $giamGia, $hinh, 0, $thongSo, $moTa, $anHien, $idLoai, $idSP);
     if ($kq != true) {
         echo "<script>
         window.location='?page=productList';
@@ -52,7 +52,7 @@ if (isset($_POST['btn'])) {
             </div>
             <div class="form-group">
                 <label>Hình ảnh</label>
-                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="link ảnh" name="hinhAnh" value="<?= $sanPham['hinhAnh'] ?>">
+                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="link ảnh" name="hinh" value="<?= $sanPham['hinh'] ?>" ondblclick="openPopup('hinh')" required>
             </div>
             <div class="form-group">
                 <label>Màn hình</label>
@@ -120,5 +120,18 @@ if (isset($_POST['btn'])) {
     </div>
 </div>
 <script>
-
+    function openPopup(idobj) {
+        CKFinder.popup({
+            chooseFiles: true,
+            onInit: function(finder) {
+                finder.on('files:choose', function(evt) {
+                    var file = evt.data.files.first();
+                    document.getElementById(idobj).value = file.getUrl();
+                });
+                finder.on('file:choose:resizedImage', function(evt) {
+                    document.getElementById(idobj).value = evt.data.resizedUrl;
+                });
+            }
+        });
+    }
 </script>
