@@ -4,22 +4,22 @@ if (isset($_POST['btn'])) {
     $tieuDe = $_POST['tieuDe'];
     $tomTat = $_POST['tomTat'];
     $noiDung = $_POST['noiDung'];
-    $hinhAnh = $_POST['hinhAnh'];
+    $hinh = $_POST['hinh'];
     $anHien = $_POST['anHien'];
     $tieuDe = trim(strip_tags($tieuDe));
     $tomTat = trim(strip_tags($tomTat));
-    $hinhAnh = trim(strip_tags($hinhAnh));
-    $kq = addBlog($tieuDe,$tomTat,$noiDung,$hinhAnh,$UserLogin['idUser'],0,$anHien);
+    $hinh = trim(strip_tags($hinh));
+    $kq = addBlog($tieuDe, $tomTat, $noiDung, $hinh, $UserLogin['idUser'], 0, $anHien);
     echo "<script>
             window.location='?page=blogList';
             </script>";
 }
 ?>
 <style>
-.ck-editor__editable_inline {
-    min-height: 250px;
-    max-height: 450px;
-}
+    .ck-editor__editable_inline {
+        min-height: 250px;
+        max-height: 450px;
+    }
 </style>
 <div class="card">
     <div class="card-body">
@@ -41,7 +41,7 @@ if (isset($_POST['btn'])) {
             </div>
             <div class="form-group">
                 <label>Hình ảnh</label>
-                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Hình ảnh" name="hinhAnh" required>
+                <input type="text" class="form-control" id="hinh" placeholder="Hình ảnh" name="hinh" required ondblclick="openPopup('hinh')">
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Ẩn Hiện</label><br>
@@ -57,12 +57,30 @@ if (isset($_POST['btn'])) {
 <script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/translations/vi.js"> </script>
 <script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script>
 <script>
-ClassicEditor
-    .create(document.querySelector('#noiDung'),{language: 'vi'} )
-    .then( editor => {
-        console.log( editor );
-    } )
-    .catch( error => {
-        console.error( error );
-    } );    
+    ClassicEditor
+        .create(document.querySelector('#noiDung'), {
+            language: 'vi'
+        })
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+<script>
+    function openPopup(idobj) {
+        CKFinder.popup({
+            chooseFiles: true,
+            onInit: function(finder) {
+                finder.on('files:choose', function(evt) {
+                    var file = evt.data.files.first();
+                    document.getElementById(idobj).value = file.getUrl();
+                });
+                finder.on('file:choose:resizedImage', function(evt) {
+                    document.getElementById(idobj).value = evt.data.resizedUrl;
+                });
+            }
+        });
+    }
 </script>

@@ -1,5 +1,5 @@
 <?php
-include_once 'pdo.php';
+require_once 'pdo.php';
 //Lấy danh sách loại sản phẩm
 function getAllProductType()
 {

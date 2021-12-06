@@ -45,6 +45,7 @@
   <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="../../images/favicon.png" />
+  <script src="../../ckfinder/ckfinder.js"></script>
 </head>
 <?php
   require_once "../../../model/admin.php";
