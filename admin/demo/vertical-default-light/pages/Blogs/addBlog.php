@@ -57,18 +57,6 @@ if (isset($_POST['btn'])) {
 <script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/translations/vi.js"> </script>
 <script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script>
 <script>
-    ClassicEditor
-        .create(document.querySelector('#noiDung'), {
-            language: 'vi'
-        })
-        .then(editor => {
-            console.log(editor);
-        })
-        .catch(error => {
-            console.error(error);
-        });
-</script>
-<script>
     function openPopup(idobj) {
         CKFinder.popup({
             chooseFiles: true,
@@ -83,4 +71,31 @@ if (isset($_POST['btn'])) {
             }
         });
     }
+</script>
+<script>
+ClassicEditor.create( document.querySelector('#noiDung') , {
+    language: 'vi',
+    ckfinder: {
+        uploadUrl: 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
+    },    
+    toolbar: {
+    items: [  
+        'fontfamily', 'fontsize', '|',
+        'heading', '|',        
+        'alignment', '|',
+        'fontColor', 'fontBackgroundColor', '|',
+        'bold', 'italic', 'underline', 'subscript', 'superscript', '|',
+        'link', '|',
+        'outdent', 'indent', '|',
+        'bulletedList', 'numberedList', 'todoList', '|',
+        'code', 'codeBlock', '|',
+        'insertTable', '|',
+        'ckfinder',
+        'undo', 'redo'
+    ],
+    shouldNotGroupWhenFull: true
+}
+})
+.then( editor => {   })
+.catch( error => {console.error( error )} );
 </script>

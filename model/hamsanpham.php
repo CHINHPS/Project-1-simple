@@ -97,7 +97,7 @@ function getInvoiceDetail($idHoadon){
 }
 //Lấy bình luận của sản phẩm
 function getCommentByIDSP($idSP){
-   $sql = "SELECT * FROM binh_luan Where idSP=?";
+   $sql = "SELECT * FROM binh_luan Where idSP=? AND anHien=0";
    return pdo_query($sql,$idSP);
 }
 //Thêm bình luận
