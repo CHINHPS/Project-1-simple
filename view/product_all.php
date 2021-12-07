@@ -33,8 +33,6 @@
                             <div class="widget-filters widget widget-filters--offcanvas--mobile" data-collapse data-collapse-opened-class="filter--opened">
                                 <h4 class="widget-filters__title widget__title">Bộ lọc</h4>
                                 <div class="widget-filters__list">
-
-
                                     <div class="widget-filters__item">
                                         <div class="filter filter--opened" data-collapse-item><button type="button" class="filter__title" data-collapse-trigger>Danh mục</button>
                                             <div class="filter__body" data-collapse-content>
@@ -54,61 +52,17 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="widget-filters__item">
-                                        <div class="filter filter--opened" data-collapse-item="">
-                                            <button type="button" class="filter__title" data-collapse-trigger="">Khoảng giá
-                                                <i class="fas fa-hand-holding-usd"></i>
-                                            </button>
-                                            <div class="filter__body" data-collapse-content="">
-                                                <div class="filter__container">
-                                                    <div class="row filter__container">
-                                                        <input name="gia_min" class="form-control form-control-sm col-5" placeholder="Từ">
-                                                        
-                                                        <span class="p-1 col-2">
-                                                            <center>
-                                                            -
-                                                            </center>
-                                                        </span>
-                                                        
-                                                        <input name="gia_max" class="form-control form-control-sm col-5" placeholder="Đến">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="widget-filters__actions d-flex">
-                                    <button class="btn btn-primary btn-sm col-12" type="submit">Tìm kiếm</button>
                                 </div>
                             </div>
                         </div>
-               
                     </div>
                 </div>
             </div>
             <div class="shop-layout__content">
                 <div class="block">
                     <div class="products-view">
-                        <div class="products-view__options">
-                            <div class="view-options view-options--offcanvas--mobile">
-                                <div class="view-options__filters-button"><button type="button" class="filters-button">
-                                    <i class="fas fa-search" style="margin-right:5px"></i>    
-                                    <span class="filters-button__title"> Bộ lọc</span> </button>
-                                </div>
-                              
-                                
-                                <div class="view-options__control"><label for="">Xắp sếp theo</label>
-                                    <div><select class="form-control form-control-sm" name="" id="">
-                                            <option value="">Mặc định</option>
-                                            <option value="">Tên (A-Z)</option>
-                                        </select></div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="products-view__list products-list" data-layout="grid-3-sidebar" data-with-features="false" data-mobile-grid-columns="2">
                             <div class="products-list__body">
-
-
                         <?php foreach($sanpham as  $sanphams){?>
                                 <div class="products-list__item">
                                     <div class="product-card product-card--hidden-actions">

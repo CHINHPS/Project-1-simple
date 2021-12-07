@@ -20,9 +20,9 @@
                             <div class="post-header__meta-item"><a href="#"><?php echo $detail_news['ngayDang'] ?></a></div>
                         </div>
                     </div>
-                    <div class="post__featured"><a href="#"><img src="<?php echo $detail_news['hinhAnh'] ?>"
-                                alt=""></a></div>
-                    <div class="post__content typography typography--expanded">
+                    <div class="post__featured"><img src="<?php echo $detail_news['hinhAnh'] ?>"
+                                alt=""></div>
+                    <div class="post__content typography typography--expanded" style="text-align: justify;">
                        
                         <figure><a href="#"><img src="images/posts/post-featured.jpg" alt=""></a>
                             <figcaption><?php echo $detail_news['tieuDe'] ?></figcaption>
@@ -30,7 +30,7 @@
                       
                         <p><?php echo $detail_news['tomTat'] ?></p>
                         
-                        <p><?php echo $detail_news['noiDung'] ?></p>
+                        <p style="text-align: justify;"><?php echo $detail_news['noiDung'] ?></p>
                     </div>
                     <div class="post__footer">
                         <div class="post__tags-share-links">
